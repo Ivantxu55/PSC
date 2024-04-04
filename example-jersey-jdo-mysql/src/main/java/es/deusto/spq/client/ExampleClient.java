@@ -24,8 +24,8 @@ public class ExampleClient {
 	private static final String PASSWORD = "dipina";
 
 
-	private Client client;
-	private WebTarget webTarget;
+	private final Client client;
+	private final WebTarget webTarget;
 
 	public ExampleClient(String hostname, String port) {
 		client = ClientBuilder.newClient();
