@@ -14,7 +14,7 @@ Este proyecto tiene como objetivo aprender a utilizar la metodología SCRUM para
 Existen dos paquetes dentro de nuestra aplicación, uno contiene la lógica de la app y otro la interfaz gráfica. Todas las dependencias se encuentran en el archivo `pom`.
 
 ## Contacto de los miembros del equipo
- - @Ivantxu55 -
- - @Federriko97 - 
- - @mariaMardones - 
+ - @Ivantxu55 - ivan.casado@opendeusto.es
+ - @Federriko97 - federico.alonso@opendeusto.es
+ - @mariaMardones - maria.mardones@opendeusto.es
  - @jrsbajo - j.suarezbajo@opendeusto.es
