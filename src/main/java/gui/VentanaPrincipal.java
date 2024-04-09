@@ -1,8 +1,10 @@
 package gui;
 
 import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.*;
 
+import domain.Coche;
 import domain.Color;
 
 public class VentanaPrincipal extends JFrame{
@@ -11,6 +13,7 @@ public class VentanaPrincipal extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private JTable tablaCoches;
 
 	public VentanaPrincipal() {
 		
@@ -72,6 +75,13 @@ public class VentanaPrincipal extends JFrame{
 		JTextField txtKm = new JTextField();
 		
 		JButton btnComprar = new JButton("Comprar");
+
+		Coche c = new Coche();
+		ArrayList<Coche> coches = new ArrayList<Coche>();
+		coches.add(c);
+		CocheTableModel tablamodelo = new CocheTableModel(coches);
+		tablaCoches = new JTable(tablamodelo);
+		pCentro.add(tablaCoches);
 		
 		//TODO
 		// Configuración de los eventos.
