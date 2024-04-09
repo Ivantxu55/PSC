@@ -6,6 +6,11 @@ import javax.swing.*;
 
 public class VentanaVerPerfil extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public VentanaVerPerfil() {
 		
 		// Configuración de la ventana.

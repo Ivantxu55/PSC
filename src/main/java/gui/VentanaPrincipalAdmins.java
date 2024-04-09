@@ -2,17 +2,16 @@ package gui;
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.JFrame;
 
-import domain.Color;
-
-public class VentanaPrincipal extends JFrame{
+public class VentanaPrincipalAdmins extends JFrame{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public VentanaPrincipal() {
+	public VentanaPrincipalAdmins() {
 		
 		// Configuración de la ventana.
 		setTitle("Menú principal");
@@ -37,8 +36,6 @@ public class VentanaPrincipal extends JFrame{
 		JPanel pPanelVacio1 = new JPanel();
 		JPanel pPanelVacio2 = new JPanel();
 		JPanel pPanelVacio3 = new JPanel();
-		JButton btnRegistrarse = new JButton("Registrarse");
-		JButton btnLogin = new JButton("Login");
 		
 		JLabel lFiltros = new JLabel("Filtros:");
 		JButton btnBuscar = new JButton("Buscar");
@@ -71,7 +68,7 @@ public class VentanaPrincipal extends JFrame{
 		JLabel lKilometraje = new JLabel("Kilometros:");
 		JTextField txtKm = new JTextField();
 		
-		JButton btnComprar = new JButton("Comprar");
+		JButton btnEditar = new JButton("Editar");
 		
 		//TODO
 		// Configuración de los eventos.
@@ -83,8 +80,6 @@ public class VentanaPrincipal extends JFrame{
 		pNorte.add(pPanelVacio1);
 		pNorte.add(pPanelVacio2);
 		pNorte.add(pPanelVacio3);
-		pNorte.add(btnRegistrarse);
-		pNorte.add(btnLogin);
 		
 		pOeste.add(lFiltros);
 		pOeste.add(btnBuscar);
@@ -110,7 +105,7 @@ public class VentanaPrincipal extends JFrame{
 		pOeste.add(cbUsado);
 		pOeste.add(btnQuitarFiltros);
 		
-		pSur.add(btnComprar);
+		pSur.add(btnEditar);
 		
 		add(pNorte, BorderLayout.NORTH);
 		add(pCentro, BorderLayout.CENTER);
@@ -123,6 +118,6 @@ public class VentanaPrincipal extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		VentanaPrincipal vp = new VentanaPrincipal();
+		VentanaPrincipalAdmins vpa = new VentanaPrincipalAdmins();
 	}
 }

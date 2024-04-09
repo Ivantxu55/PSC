@@ -6,6 +6,11 @@ import javax.swing.JFrame;
 
 public class Main extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public Main() {
 		
 		// Configuración de la ventana.
