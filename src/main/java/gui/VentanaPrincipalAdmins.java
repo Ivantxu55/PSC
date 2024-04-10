@@ -1,8 +1,11 @@
 package gui;
 
 import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.*;
-import javax.swing.JFrame;
+
+import domain.Coche;
+import domain.Color;
 
 public class VentanaPrincipalAdmins extends JFrame{
 	
@@ -10,6 +13,7 @@ public class VentanaPrincipalAdmins extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private JTable tablaCoches;
 
 	public VentanaPrincipalAdmins() {
 		
@@ -36,6 +40,7 @@ public class VentanaPrincipalAdmins extends JFrame{
 		JPanel pPanelVacio1 = new JPanel();
 		JPanel pPanelVacio2 = new JPanel();
 		JPanel pPanelVacio3 = new JPanel();
+		JButton btnCerrarSesion = new JButton("Cerrar sesion");
 		
 		JLabel lFiltros = new JLabel("Filtros:");
 		JButton btnBuscar = new JButton("Buscar");
@@ -69,6 +74,15 @@ public class VentanaPrincipalAdmins extends JFrame{
 		JTextField txtKm = new JTextField();
 		
 		JButton btnEditar = new JButton("Editar");
+		JButton btnCrearCoche = new JButton("Nuevo coche");
+		JButton btnEliminar = new JButton("Eliminar");
+		
+		Coche c = new Coche();
+		ArrayList<Coche> coches = new ArrayList<Coche>();
+		coches.add(c);
+		CocheTableModel tablamodelo = new CocheTableModel(coches);
+		tablaCoches = new JTable(tablamodelo);
+		pCentro.add(tablaCoches);
 		
 		//TODO
 		// Configuración de los eventos.
@@ -80,6 +94,7 @@ public class VentanaPrincipalAdmins extends JFrame{
 		pNorte.add(pPanelVacio1);
 		pNorte.add(pPanelVacio2);
 		pNorte.add(pPanelVacio3);
+		pNorte.add(btnCerrarSesion);
 		
 		pOeste.add(lFiltros);
 		pOeste.add(btnBuscar);
@@ -105,7 +120,9 @@ public class VentanaPrincipalAdmins extends JFrame{
 		pOeste.add(cbUsado);
 		pOeste.add(btnQuitarFiltros);
 		
+		pSur.add(btnCrearCoche);
 		pSur.add(btnEditar);
+		pSur.add(btnEliminar);
 		
 		add(pNorte, BorderLayout.NORTH);
 		add(pCentro, BorderLayout.CENTER);
