@@ -1,6 +1,9 @@
 package gui;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.*;
 
@@ -62,7 +65,39 @@ public class VentanaRegistrarse extends JFrame{
 		//TODO
 		// Configuración de los eventos.
 		
+		btnInicio.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				VentanaPrincipal vp = new VentanaPrincipal();
+				dispose();
+				
+			}
+		});
 		
+		btnLogin.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				VentanaLogin vl = new VentanaLogin();
+				dispose();
+				
+			}
+		});
+		
+		btnAceptar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				//TODO
+				VentanaPrincipal vp = new VentanaPrincipal();
+				dispose();
+				
+			}
+		});
 		
 		// Asignación de los componentes a los contenedores.
 		pNorte.add(btnInicio);

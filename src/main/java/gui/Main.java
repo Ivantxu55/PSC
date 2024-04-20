@@ -56,8 +56,6 @@ public class Main extends JFrame{
 			}
 		});
 		
-		
-		
 		// Asignación de los componentes a los contenedores.
 		
 		pCentro.add(btnAdmin);
