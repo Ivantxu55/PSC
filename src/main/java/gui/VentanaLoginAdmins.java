@@ -1,6 +1,8 @@
 package gui;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -50,6 +52,29 @@ public class VentanaLoginAdmins extends JFrame{
 		
 		//TODO
 		// Configuración de los eventos.
+		
+		btnInicio.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				Main m = new Main();
+				dispose();
+				
+			}
+		});
+		
+		btnAceptar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				//TODO
+				VentanaPrincipalAdmins vpa = new VentanaPrincipalAdmins();
+				dispose();
+				
+			}
+		});
 		
 		
 		// Asignación de los componentes a los contenedores.
