@@ -48,7 +48,7 @@ public class VentanaVerPerfil extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				VentanaPrincipalAdmins vpa = new VentanaPrincipalAdmins();
+				VentanaPrincipal vp = new VentanaPrincipal();
 				dispose();
 				
 			}
