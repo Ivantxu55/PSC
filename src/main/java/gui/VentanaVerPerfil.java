@@ -1,6 +1,9 @@
 package gui;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.*;
 
@@ -40,7 +43,25 @@ public class VentanaVerPerfil extends JFrame{
 		
 		// Configuración de los eventos.
 		
+		btnInicio.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				VentanaPrincipalAdmins vpa = new VentanaPrincipalAdmins();
+				dispose();
+				
+			}
+		});
 		
+		btnDesconectarse.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		// Asignación de los componentes a los contenedores.
 		pNorte.add(btnInicio);
