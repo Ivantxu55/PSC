@@ -48,8 +48,9 @@ public class VentanaPrincipal extends JFrame{
 		JLabel lFiltros = new JLabel("Filtros:");
 		JButton btnBuscar = new JButton("Buscar");
 		JLabel lMarcas = new JLabel("Marcas:");
-		JCheckBox cbSubaru = new JCheckBox("Subaru");
-		JCheckBox cbMercedes = new JCheckBox("Mercedes");
+		JComboBox<String> comboBMarcas = new JComboBox<String>();
+		comboBMarcas.addItem("Subaru");
+		comboBMarcas.addItem("Mercedes");
 		
 		JButton btnQuitarFiltros = new JButton("Quitar filtros");
 		
@@ -161,8 +162,7 @@ public class VentanaPrincipal extends JFrame{
 		pOeste.add(lFiltros);
 		pOeste.add(btnBuscar);
 		pOeste.add(lMarcas);
-		pOeste.add(cbSubaru);
-		pOeste.add(cbMercedes);
+		pOeste.add(comboBMarcas);
 		
 		pOeste.add(lKilometraje);
 		pOeste.add(txtKm);
