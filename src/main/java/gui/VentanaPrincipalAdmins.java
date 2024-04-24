@@ -8,6 +8,7 @@ import javax.swing.*;
 
 import domain.Coche;
 import domain.Color;
+import metodosGui.MetodosGUI;
 
 public class VentanaPrincipalAdmins extends JFrame{
 	
@@ -95,7 +96,8 @@ public class VentanaPrincipalAdmins extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				VentanaPrincipalAdmins vpa = new VentanaPrincipalAdmins();
+				MetodosGUI m = new MetodosGUI();
+				m.abrirVentanaInicioAdmins();
 				dispose();
 				
 			}

@@ -5,6 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+
+import metodosGui.MetodosGUI;
+
 import javax.swing.*;
 
 public class VentanaLogin extends JFrame{
@@ -59,8 +62,8 @@ public class VentanaLogin extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				VentanaPrincipal vp = new VentanaPrincipal();
+				MetodosGUI m = new MetodosGUI();
+				m.abrirVentanaInicio();
 				dispose();
 				
 			}

@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.JFrame;
 
+import metodosGui.MetodosGUI;
+
 public class Main extends JFrame{
 	
 	/**
@@ -39,7 +41,8 @@ public class Main extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				VentanaLoginAdmins vla = new VentanaLoginAdmins();
+				MetodosGUI m = new MetodosGUI();
+				m.abrirVentanaInicioAdmins();	
 				dispose();
 				
 			}
@@ -50,7 +53,8 @@ public class Main extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				VentanaPrincipal vp = new VentanaPrincipal();
+				MetodosGUI m = new MetodosGUI();
+				m.abrirVentanaInicio();	
 				dispose();
 				
 			}
