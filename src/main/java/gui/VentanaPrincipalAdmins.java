@@ -8,9 +8,6 @@ import javax.swing.*;
 
 import domain.jdo.Coche;
 import domain.jdo.Color;
-import domain.Coche;
-import domain.Color;
-import domain.Marca;
 import metodosGui.MetodosGUI;
 
 import domain.jdo.Marca;
