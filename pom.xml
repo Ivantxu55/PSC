@@ -6,29 +6,34 @@
     <!-- <groupId>es.deusto.psc</groupId> -->
     <groupId>domain</groupId>
     <artifactId>ejecutable</artifactId>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.release>8</maven.compiler.release>
-		<config.files.dir>${basedir}/src/main/resources</config.files.dir>
+		<config.files.dir>${basedir}/resources</config.files.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jersey.version>2.35</jersey.version>
 		<server.hostname>127.0.0.1</server.hostname>
-		<server.port>8080</server.port>
+		<server.port>8081</server.port>
 	</properties>
 
-    <!-- <dependencies>
-        <dependency> 
-            <groupId>com.opencsv</groupId> 
-            <artifactId>opencsv</artifactId> 
-            <version>5.9</version> 
-        </dependency>
-    </dependencies> -->
-
+	<dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.glassfish.jersey</groupId>
+                <artifactId>jersey-bom</artifactId>
+                <version>${jersey.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
+        <!-- ===== BASE DE DATOS y PERSISTENCIA ===== -->
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>javax.jdo</artifactId>
@@ -59,19 +64,43 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.29</version>
 		</dependency>
+        <!-- ======================================== -->
+
+        <!-- =============== API REST =============== -->
+        <!-- Usaremos Jersey para implementar la API REST siguiendo la especificación JAX-RS -->
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+        </dependency>
+         <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+        </dependency>
+
+        <!-- <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>9.4.35.v20201120</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+            <version>9.4.35.v20201120</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>9.4.35.v20201120</version>
+        </dependency> -->
+        <!-- ======================================== -->
+
     </dependencies>
 
     <build>
-		<!-- <resources>
-			<resource>
-				<directory>${config.files.dir}</directory>
-				<includes>
-					<include>**/*.jdo</include>
-					<include>**/*.orm</include>
-					<include>**/*.properties</include>
-				</includes>
-			</resource>
-		</resources> -->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -81,27 +110,9 @@
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
                 </configuration>
-            </plugin>
-            <!-- <plugin> -->
-                <!-- <groupId>org.datanucleus</groupId> -->
-                <!-- <artifactId>datanucleus-maven-plugin</artifactId> -->
-                <!-- <version>[6.0.0-m1, 6.9)</version> -->
-                <!-- <configuration> -->
-                    <!-- <api>JDO</api> or JPA -->
-                    <!-- <props>datanucleus.properties</props> -->
-                <!-- </configuration> -->
-            <!-- </plugin> -->
-                <plugin>
-                    <groupId>org.datanucleus</groupId>
-                    <artifactId>datanucleus-maven-plugin</artifactId>
-                    <version>6.0.0-release</version>
-                    <configuration>
-                        <api>JDO</api>
-                        <verbose>true</verbose>
-                        <props>${config.files.dir}/datanucleus.properties</props>
-                    </configuration>
-                </plugin>
-            <plugin>
+			</plugin>
+
+			<!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.3.0</version>
@@ -124,12 +135,64 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin> -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>${basedir}/assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.2</version>
+			</plugin>
+
+            <!-- ============= Datanucleus ============= -->
+			<plugin>
+				<groupId>org.datanucleus</groupId>
+				<artifactId>datanucleus-maven-plugin</artifactId>
+				<version>6.0.0-release</version>
+				<configuration>
+					<api>JDO</api>
+					<verbose>true</verbose>
+					<props>${config.files.dir}/datanucleus.properties</props>
+				</configuration>
+				<executions>
+					<execution>
+						<!-- links the enhance to the compile phase -->
+						<phase>compile</phase>
+						<goals>
+							<goal>enhance</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+            <!-- ======================================== -->
+
+            <!-- =============== API REST =============== -->
+            <!-- Jetty plugin para lanzar un contenedor web integrado (embedded Servlet Container) -->
+            <plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+                <!-- <version>11.0.8</version> -->
+				<version>9.4.46.v20220331</version>
+                <!-- <configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <webApp>
+                        <contextPath>/rest</contextPath>
+                    </webApp>
+                </configuration> -->
             </plugin>
+            <!-- ======================================== -->
         </plugins>
     </build>
 
 	<profiles>
-		<profile>
+		<!-- <profile>
 			<id>servidor</id>
 			<build>
                 <plugins>
@@ -146,15 +209,15 @@
                         </executions>
                         <configuration>
                             <mainClass>domain.Main</mainClass>
-							<!-- <arguments>
-								<argument>${server.hostname}</argument>
-								<argument>${server.port}</argument>
-							</arguments> -->
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
-		</profile>
+		</profile> -->
+        							<!-- <arguments>
+								<argument>${server.hostname}</argument>
+								<argument>${server.port}</argument>
+							</arguments> -->
 		<profile>
 			<id>cliente_usuario</id>
 			<build>
@@ -172,10 +235,6 @@
                         </executions>
                         <configuration>
                             <mainClass>gui.VentanaPrincipal</mainClass>
-							<!-- <arguments>
-								<argument>${server.hostname}</argument>
-								<argument>${server.port}</argument>
-							</arguments> -->
                         </configuration>
                     </plugin>
                 </plugins>
@@ -198,10 +257,6 @@
                         </executions>
                         <configuration>
                             <mainClass>gui.VentanaPrincipalAdmins</mainClass>
-							<!-- <arguments>
-								<argument>${server.hostname}</argument>
-								<argument>${server.port}</argument>
-							</arguments> -->
                         </configuration>
                     </plugin>
                 </plugins>
