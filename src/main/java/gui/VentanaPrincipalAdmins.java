@@ -6,9 +6,11 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 
-import domain.Coche;
-import domain.Color;
+import domain.jdo.Coche;
+import domain.jdo.Color;
 import metodosGui.MetodosGUI;
+
+import domain.jdo.Marca;
 
 public class VentanaPrincipalAdmins extends JFrame{
 	
@@ -135,6 +137,31 @@ public class VentanaPrincipalAdmins extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+
+				// abrir una cmd donde se incluyan los siguientes datos: marca, anyo, color, kilometraje, precio, estado
+				// marca = JOptionPane.showInputDialog("Introduce la marca del coche");
+				// anyo = JOptionPane.showInputDialog("Introduce el año del coche");
+				// color = JOptionPane.showInputDialog("Introduce el color del coche");
+				// kilometraje = JOptionPane.showInputDialog("Introduce el kilometraje del coche");	
+				// precio = JOptionPane.showInputDialog("Introduce el precio del coche");
+				// estado = JOptionPane.showInputDialog("Introduce el estado del coche");
+
+				Marca marca = Marca.Ford;
+				int anyo = 2020;
+				Color color = Color.Black;
+				int kilometraje = 5000;
+				int precio = 20000;
+				boolean estado = true;
+
+				// llamar al método correspondiente que conecte con la API y cree el coche
+				System.out.println("Creando coche...");
+				Coche coche = new Coche(2, marca, anyo, color, kilometraje, precio, estado);
+				LogicaCliente logicaCliente = new LogicaCliente("localhost", "8080");
+				logicaCliente.agregarCoche(coche);
+
+				// Coche coche = new Coche(1, Marca.Ford, 2020, Color.Black, 5000, 20000, true);
+				// JOptionPane.showMessageDialog(null, "Coche creado exitosamente");
+				
 				
 			}
 		});
