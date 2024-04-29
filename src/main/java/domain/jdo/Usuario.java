@@ -1,4 +1,4 @@
-package domain;
+package domain.jdo;
 
 import java.util.ArrayList;
 import java.util.Date;

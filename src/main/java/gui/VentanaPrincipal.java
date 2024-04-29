@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 
-import domain.Coche;
-import domain.Color;
+import domain.jdo.Coche;
+import domain.jdo.Color;
 import metodosGui.MetodosGUI;
 
 public class VentanaPrincipal extends JFrame{

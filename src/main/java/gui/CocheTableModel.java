@@ -1,6 +1,6 @@
 package gui;
 
-import domain.Coche;
+import domain.jdo.Coche;
 
 import javax.swing.table.DefaultTableModel;
 import java.text.SimpleDateFormat;

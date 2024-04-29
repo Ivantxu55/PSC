@@ -1,14 +1,29 @@
-package domain;
+package domain.jdo;
 
 import java.util.Objects;
 
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.PrimaryKey;
+import javax.jdo.annotations.Join;
+import javax.jdo.annotations.Persistent;
+
+@PersistenceCapable
 public class Coche {
+
+   	@PrimaryKey
     private int id;
+
+    @Persistent
     private Marca marca;
+    @Persistent
     private int anyo;
+    @Persistent
     private Color color;
+    @Persistent
     private int kilometraje;
+    @Persistent
     private int precio;
+    @Persistent
     private boolean nuevo;
 
     public Coche(int id, Marca marca, int anyo, Color color, int kilometraje, int precio, boolean nuevo) {
