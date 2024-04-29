@@ -8,6 +8,7 @@ import javax.swing.*;
 
 import domain.Coche;
 import domain.Color;
+import domain.Marca;
 import metodosGui.MetodosGUI;
 
 public class VentanaPrincipalAdmins extends JFrame{
@@ -48,16 +49,18 @@ public class VentanaPrincipalAdmins extends JFrame{
 		JLabel lFiltros = new JLabel("Filtros:");
 		JButton btnBuscar = new JButton("Buscar");
 		JLabel lMarcas = new JLabel("Marcas:");
-		JComboBox<String> comboBMarcas = new JComboBox<String>();
-		comboBMarcas.addItem("Subaru");
-		comboBMarcas.addItem("Mercedes");
+		JComboBox<String> comboMarcas = new JComboBox<String>();
+		for(Marca m : Marca.values()) {
+			comboMarcas.addItem(m.toString());
+		}
 		
 		JButton btnQuitarFiltros = new JButton("Quitar filtros");
 		
 		JLabel lColor = new JLabel("Color:");
-		JCheckBox cbBlue = new JCheckBox("Azul");
-		JCheckBox cbWhite = new JCheckBox("Blanco");
-		JCheckBox cbBlack = new JCheckBox("Rojo");
+		JComboBox<String> comboColor = new JComboBox<String>();
+		for(Color c : Color.values()) {
+			comboColor.addItem(c.toString());
+		}
 		
 		JLabel lPrecio = new JLabel("Precio:");
 		JSlider sPrecio = new JSlider(0, 10000, 10000);
@@ -67,8 +70,8 @@ public class VentanaPrincipalAdmins extends JFrame{
 		sPrecio.setPaintLabels(true);
 		
 		JLabel lEstado = new JLabel("Estado:");
-		JCheckBox cbNuevo = new JCheckBox("Nuevo");
-		JCheckBox cbUsado= new JCheckBox("Usado");
+		JRadioButton cbNuevo = new JRadioButton("Nuevo");
+		JRadioButton cbUsado= new JRadioButton("Usado");
 		
 		JLabel lAnyo = new JLabel("Año:");
 		JTextField txtAnyo1 = new JTextField();
@@ -81,13 +84,12 @@ public class VentanaPrincipalAdmins extends JFrame{
 		JButton btnCrearCoche = new JButton("Nuevo coche");
 		JButton btnEliminar = new JButton("Eliminar");
 		
-		Coche c = new Coche();
+		Coche coche = new Coche();
 		ArrayList<Coche> coches = new ArrayList<Coche>();
-		coches.add(c);
+		coches.add(coche);
 		CocheTableModel tablamodelo = new CocheTableModel(coches);
 		tablaCoches = new JTable(tablamodelo);
 		pCentro.add(tablaCoches);
-		
 		//TODO
 		// Configuración de los eventos.
 		
@@ -104,11 +106,19 @@ public class VentanaPrincipalAdmins extends JFrame{
 		});
 		
 		btnCerrarSesion.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
+				JDialog d = new JDialog();
+				d.setLayout(new FlowLayout());
+				d.setSize(300, 100);
+				d.setLocation(500, 300);
+				JLabel l = new JLabel("¿Está seguro de que desea cerrar la sesión?");
+				JButton bSi = new JButton("Sí");
+				d.add(l);
+				d.add(bSi);
+				d.setVisible(true);
+
 			}
 		});
 		
@@ -156,6 +166,69 @@ public class VentanaPrincipalAdmins extends JFrame{
 				
 			}
 		});
+		comboColor.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ArrayList<Coche> filtrados = new ArrayList<Coche>();
+				for(Coche c : coches) {
+					if(c.getColor().toString().equals(comboColor.getSelectedItem().toString())) {
+						filtrados.add(c);
+					}
+				}
+				tablamodelo.setCoches(filtrados);
+
+
+			}
+		});
+		comboMarcas.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ArrayList<Coche> filtrados = new ArrayList<Coche>();
+				for(Coche c : coches) {
+					if(c.getMarca().toString().equals(comboMarcas.getSelectedItem().toString())) {
+						filtrados.add(c);
+					}
+				}
+				tablamodelo.setCoches(filtrados);
+
+			}
+		});
+
+
+		cbNuevo.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cbUsado.setSelected(false);
+				ArrayList<Coche> filtrados = new ArrayList<Coche>();
+				for(Coche c : coches) {
+					if(c.isNuevo()) {
+						filtrados.add(c);
+					}
+				}
+				tablamodelo.setCoches(filtrados);
+			}
+		});
+
+		cbUsado.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cbNuevo.setSelected(false);
+				ArrayList<Coche> filtrados = new ArrayList<Coche>();
+				for(Coche c : coches) {
+					if(!c.isNuevo()) {
+						filtrados.add(c);
+					}
+				}
+				tablamodelo.setCoches(filtrados);
+			}
+		});
+
+
+
 		
 		
 		// Asignación de los componentes a los contenedores.
@@ -169,7 +242,7 @@ public class VentanaPrincipalAdmins extends JFrame{
 		pOeste.add(lFiltros);
 		pOeste.add(btnBuscar);
 		pOeste.add(lMarcas);
-		pOeste.add(comboBMarcas);
+		pOeste.add(comboMarcas);
 		
 		pOeste.add(lKilometraje);
 		pOeste.add(txtKm);
@@ -179,9 +252,7 @@ public class VentanaPrincipalAdmins extends JFrame{
 		pOeste.add(txtAnyo2);
 		
 		pOeste.add(lColor);
-		pOeste.add(cbBlue);
-		pOeste.add(cbWhite);
-		pOeste.add(cbBlack);
+		pOeste.add(comboColor);
 		pOeste.add(lPrecio);
 		pOeste.add(sPrecio);
 		pOeste.add(lEstado);
@@ -202,7 +273,7 @@ public class VentanaPrincipalAdmins extends JFrame{
 		setVisible(true);
 		
 	}
-	
+
 	public static void main(String[] args) {
 		VentanaPrincipalAdmins vpa = new VentanaPrincipalAdmins();
 	}

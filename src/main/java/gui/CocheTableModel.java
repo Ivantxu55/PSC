@@ -67,4 +67,11 @@ public class CocheTableModel extends DefaultTableModel {
     public Coche getCocheAt(int row) {
         return coches.get(row);
     }
+
+    public void setCoches(List<Coche> coches) {
+        this.coches = coches;
+        fireTableDataChanged();
+    }
 }
+
+
