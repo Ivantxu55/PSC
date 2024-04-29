@@ -3,12 +3,20 @@ package gui;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.util.ArrayList;
 import javax.swing.*;
 
+import javax.jdo.Query;
+
 import domain.jdo.Coche;
 import domain.jdo.Color;
+import domain.jdo.Marca;
 import metodosGui.MetodosGUI;
+
+import javax.jdo.JDOHelper;
+import javax.jdo.PersistenceManager;
+import javax.jdo.PersistenceManagerFactory;
 
 public class VentanaPrincipal extends JFrame{
 	
@@ -80,9 +88,28 @@ public class VentanaPrincipal extends JFrame{
 		
 		JButton btnComprar = new JButton("Comprar");
 
-		Coche c = new Coche();
+
 		ArrayList<Coche> coches = new ArrayList<Coche>();
-		coches.add(c);
+
+        PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+        PersistenceManager pm = pmf.getPersistenceManager();
+		Query q = pm.newQuery("javax.jdo.query.SQL", "SELECT * FROM coche");
+		List<Object[]> results = q.executeList();
+		for (Object[] row : results) {
+			Marca marca = Marca.valueOf((String) row[1]);
+			Color color = Color.valueOf((String) row[3]);
+			Coche coche = new Coche(
+				marca,          	// marca
+				(Integer)row[2],    // año
+				color,          	// color
+				(Integer)row[4],	// km
+				(Integer)row[5],	// precio
+				(Boolean)row[6]		// estado
+			);
+			coches.add(coche);
+		}
+		q.closeAll();
+		
 		CocheTableModel tablamodelo = new CocheTableModel(coches);
 		tablaCoches = new JTable(tablamodelo);
 		pCentro.add(tablaCoches);

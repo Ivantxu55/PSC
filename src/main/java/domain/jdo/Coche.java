@@ -6,11 +6,13 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.IdGeneratorStrategy;
 
 @PersistenceCapable
 public class Coche {
 
    	@PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
     private int id;
 
     @Persistent
@@ -26,8 +28,8 @@ public class Coche {
     @Persistent
     private boolean nuevo;
 
-    public Coche(int id, Marca marca, int anyo, Color color, int kilometraje, int precio, boolean nuevo) {
-        this.id = id;
+    public Coche(Marca marca, int anyo, Color color, int kilometraje, int precio, boolean nuevo) {
+        // this.id = id;
         this.marca = marca;
         this.anyo = anyo;
         this.color = color;
