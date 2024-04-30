@@ -42,7 +42,7 @@ public class Main extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				MetodosGUI m = new MetodosGUI();
-				m.abrirVentanaInicioAdmins();	
+				m.abrirVentanaLoginAdmins();	
 				dispose();
 				
 			}

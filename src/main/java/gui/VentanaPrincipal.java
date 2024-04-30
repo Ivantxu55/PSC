@@ -12,6 +12,7 @@ import javax.jdo.Query;
 import domain.jdo.Coche;
 import domain.jdo.Color;
 import domain.jdo.Marca;
+import domain.jdo.Usuario;
 import metodosGui.MetodosGUI;
 
 import javax.jdo.JDOHelper;
@@ -25,8 +26,11 @@ public class VentanaPrincipal extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTable tablaCoches;
+	private Usuario usuarioLogeado;
 
 	public VentanaPrincipal() {
+		
+		usuarioLogeado = null;
 		
 		// Configuración de la ventana.
 		setTitle("Menú principal");
@@ -174,8 +178,37 @@ public class VentanaPrincipal extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				// TODO Sin usuarios no se puede realizar la compra.
 				
+				if (usuarioLogeado == null) {
+					JOptionPane.showMessageDialog(null, "No puede comprar un coche. Registrese o cree una cuenta");
+				} else {
+					// 1. Obtener la fila con el coche seleciconado
+					int selectedRow = tablaCoches.getSelectedRow();
+					if (selectedRow == -1) {
+						JOptionPane.showMessageDialog(null, "Debe seleccionar un coche antes de eliminar.");
+						return;
+					}
+
+					// 2. Obtener el objeto y eliminar el coche de la base de datos
+					// CocheTableModel model = (CocheTableModel) tablamodelo.getModel();
+					Coche coche = tablamodelo.getCocheAt(selectedRow);
+					// System.out.println("Coche a eliminar: " + coche);
+
+					try {
+						System.out.println("Eliminando coche...");
+						LogicaCliente logicaCliente = new LogicaCliente("localhost", "8080");
+						logicaCliente.eliminarCoche(coche); // eliminarCoche acepta un objeto Coche
+
+					// 3. Actualizar la tabla
+					// ... (pendiente de implementar)
+
+						JOptionPane.showMessageDialog(null, "Coche eliminado");
+
+					} catch (Exception ex) {
+						JOptionPane.showMessageDialog(null, "No se ha eliminado el coche: " + ex.getMessage());
+					}
+				}
 			}
 		});
 		

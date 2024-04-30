@@ -1,5 +1,6 @@
 package metodosGui;
 
+import gui.VentanaLoginAdmins;
 import gui.VentanaPrincipal;
 import gui.VentanaPrincipalAdmins;
 
@@ -19,6 +20,10 @@ public class MetodosGUI {
 	
 	public void abrirVentanaInicioAdmins(){
 		VentanaPrincipalAdmins vpa = new VentanaPrincipalAdmins();
+	}
+	
+	public void abrirVentanaLoginAdmins(){
+		VentanaLoginAdmins vpa = new VentanaLoginAdmins();
 	}
 
 }
