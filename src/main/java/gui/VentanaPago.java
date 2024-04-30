@@ -1,7 +1,13 @@
 package gui;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
+
+import domain.jdo.Coche;
+import domain.jdo.Usuario;
 
 public class VentanaPago extends JFrame{
 	
@@ -10,7 +16,7 @@ public class VentanaPago extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public VentanaPago() {
+	public VentanaPago(Usuario usuarioLogeado, Coche cocheComprar) {
 		
 		// Configuración de la ventana.
 		setTitle("Menú principal");
@@ -42,6 +48,42 @@ public class VentanaPago extends JFrame{
 		JButton btnConfirmar = new JButton("Confirmar");
 		JButton btnCancelar = new JButton("Cancelar");
 		
+		// Configuración de los eventos.
+		
+		btnConfirmar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				// Eliminar el coche de la base de datos
+
+				try {
+					System.out.println("Eliminando coche...");
+					LogicaCliente logicaCliente = new LogicaCliente("localhost", "8080");
+					logicaCliente.eliminarCoche(cocheComprar); // eliminarCoche acepta un objeto Coche
+
+				// 3. Actualizar la tabla
+				// ... (pendiente de implementar)
+
+					JOptionPane.showMessageDialog(null, "Coche eliminado");
+
+				} catch (Exception ex) {
+					JOptionPane.showMessageDialog(null, "No se ha eliminado el coche: " + ex.getMessage());
+				}
+				
+			}
+		});
+		
+		btnCancelar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
 		// Asignación de los componentes a los contenedores.
 		pNorte.add(btnInicio);
 		pNorte.add(pNombreTienda);
@@ -63,12 +105,6 @@ public class VentanaPago extends JFrame{
 		// Configuración de la ventana.
 		setVisible(true);
 		
-	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		VentanaPago vp = new VentanaPago();
 	}
 
 }

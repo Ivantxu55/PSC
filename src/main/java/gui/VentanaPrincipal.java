@@ -190,24 +190,10 @@ public class VentanaPrincipal extends JFrame{
 						return;
 					}
 
-					// 2. Obtener el objeto y eliminar el coche de la base de datos
-					// CocheTableModel model = (CocheTableModel) tablamodelo.getModel();
+					// 2. Obtener el objeto
 					Coche coche = tablamodelo.getCocheAt(selectedRow);
-					// System.out.println("Coche a eliminar: " + coche);
-
-					try {
-						System.out.println("Eliminando coche...");
-						LogicaCliente logicaCliente = new LogicaCliente("localhost", "8080");
-						logicaCliente.eliminarCoche(coche); // eliminarCoche acepta un objeto Coche
-
-					// 3. Actualizar la tabla
-					// ... (pendiente de implementar)
-
-						JOptionPane.showMessageDialog(null, "Coche eliminado");
-
-					} catch (Exception ex) {
-						JOptionPane.showMessageDialog(null, "No se ha eliminado el coche: " + ex.getMessage());
-					}
+					VentanaPago vp = new VentanaPago(usuarioLogeado, coche);
+					dispose();
 				}
 			}
 		});
