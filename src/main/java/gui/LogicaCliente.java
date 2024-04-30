@@ -26,7 +26,7 @@ public class LogicaCliente {
 	}
 
     public void agregarCoche(Coche coche) {
-        System.out.println(coche);
+        // System.out.println(coche);
 
         // establecemos conexion con el servidor a través de la API
         WebTarget agregarCocheWebTarget = webTarget.path("agregarCoche");
@@ -43,5 +43,27 @@ public class LogicaCliente {
 		// 	logger.info("User correctly registered");
 		// }
     }
+
+	public void eliminarCoche(Coche coche) {
+		System.out.println(coche);
+
+		// establecemos conexión con el servidor a través de la API
+		WebTarget eliminarCocheWebTarget = webTarget.path("eliminarCoche/{id}");
+		// configuramos el WebTarget con el ID del coche a eliminar
+		WebTarget cocheConId = eliminarCocheWebTarget.resolveTemplate("id", coche.getId());
+
+		// Creamos un invocation builder para enviar una petición DELETE
+		Invocation.Builder invocationBuilder = cocheConId.request(MediaType.APPLICATION_JSON);
+		// Enviamos la petición DELETE
+		Response response = invocationBuilder.delete();
+
+		// Procesamos la respuesta
+		if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+			System.out.println("Respuesta recibida: " + response.readEntity(String.class));
+		} else {
+			System.out.println("Error al eliminar el coche: " + response.getStatus());
+		}
+
+	}
 
 }

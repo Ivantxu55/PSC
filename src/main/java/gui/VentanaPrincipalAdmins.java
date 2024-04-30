@@ -113,6 +113,7 @@ public class VentanaPrincipalAdmins extends JFrame{
 				(Integer)row[5],	// precio
 				(Boolean)row[6]		// estado
 			);
+			coche.setId((Integer)row[0]);
 			coches.add(coche);
 		}
 		q.closeAll();
@@ -227,10 +228,36 @@ public class VentanaPrincipalAdmins extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
+			
+				// 1. Obtener la fila con el coche seleciconado
+				int selectedRow = tablaCoches.getSelectedRow();
+				if (selectedRow == -1) {
+					JOptionPane.showMessageDialog(null, "Debe seleccionar un coche antes de eliminar.");
+					return;
+				}
+
+				// 2. Obtener el objeto y eliminar el coche de la base de datos
+				// CocheTableModel model = (CocheTableModel) tablamodelo.getModel();
+				Coche coche = tablamodelo.getCocheAt(selectedRow);
+				// System.out.println("Coche a eliminar: " + coche);
+
+				try {
+					System.out.println("Eliminando coche...");
+					LogicaCliente logicaCliente = new LogicaCliente("localhost", "8080");
+					logicaCliente.eliminarCoche(coche); // eliminarCoche acepta un objeto Coche
+
+				// 3. Actualizar la tabla
+				// ... (pendiente de implementar)
+
+					JOptionPane.showMessageDialog(null, "Coche eliminado");
+
+				} catch (Exception ex) {
+					JOptionPane.showMessageDialog(null, "No se ha eliminado el coche: " + ex.getMessage());
+				}
 			}
 		});
+
+
 		comboColor.addActionListener(new ActionListener() {
 
 			@Override
