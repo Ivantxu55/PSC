@@ -106,6 +106,7 @@ public class VentanaPrincipal extends JFrame{
 				(Integer)row[5],	// precio
 				(Boolean)row[6]		// estado
 			);
+			coche.setId((Integer)row[0]);
 			coches.add(coche);
 		}
 		q.closeAll();
