@@ -11,6 +11,8 @@ import javax.ws.rs.core.Response.Status;
 
 import domain.jdo.Coche;
 
+import java.util.Map;
+
 // import org.apache.logging.log4j.LogManager;
 // import org.apache.logging.log4j.Logger;
 
@@ -64,6 +66,30 @@ public class LogicaCliente {
 			System.out.println("Error al eliminar el coche: " + response.getStatus());
 		}
 
+	}
+
+	public void modificarCoche(Coche coche, Map<String, Object> cambios) {
+		System.out.println("ID del coche a modificar: " + coche.getId() + ", Cambios: " + cambios);
+
+		// Establecemos conexión con el servidor a través de la API
+		WebTarget modificarCocheWebTarget = webTarget.path("modificarCoche/{id}");
+		// Configuramos el WebTarget con el ID del coche a modificar
+		WebTarget cocheConId = modificarCocheWebTarget.resolveTemplate("id", coche.getId());
+
+		// Creamos un invocation builder para enviar una petición PUT
+		Invocation.Builder invocationBuilder = cocheConId.request(MediaType.APPLICATION_JSON);
+		// Configuramos los cambios como entidad de la solicitud
+		Entity<Map<String, Object>> cambiosEntity = Entity.entity(cambios, MediaType.APPLICATION_JSON);
+
+		// Enviamos la petición PUT con los cambios
+		Response response = invocationBuilder.put(cambiosEntity);
+
+		// Procesamos la respuesta
+		if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+			System.out.println("Respuesta recibida: " + response.readEntity(String.class));
+		} else {
+			System.out.println("Error al modificar el coche: " + response.getStatus());
+		}
 	}
 
 }

@@ -22,6 +22,9 @@ import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 
+import java.util.Map;
+import java.util.HashMap;
+
 public class VentanaPrincipalAdmins extends JFrame{
 	
 	/**
@@ -221,6 +224,80 @@ public class VentanaPrincipalAdmins extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				
+				// Selección del coche en la tabla
+				int selectedRow = tablaCoches.getSelectedRow();
+				if (selectedRow == -1) {
+					JOptionPane.showMessageDialog(null, "Debe seleccionar un coche antes de modificar.");
+					return;
+				}
+				Coche cocheActual = tablamodelo.getCocheAt(selectedRow); // Asumimos que este método está implementado en el modelo de tabla
+
+				try {
+					Map<String, Object> cambios = new HashMap<>();
+
+					// Diálogo para modificar la marca
+					Marca[] choices_marcas = Marca.values();
+					Marca marca = (Marca) JOptionPane.showInputDialog(
+						null,
+						"Elige la nueva marca del coche:",
+						"Modificar Marca",
+						JOptionPane.QUESTION_MESSAGE,
+						null,
+						choices_marcas,
+						cocheActual.getMarca()
+					);
+					if (marca != null && marca != cocheActual.getMarca()) cambios.put("marca", marca);
+
+					// Diálogo para modificar el año
+					String anyoStr = JOptionPane.showInputDialog("Introduce el nuevo año del coche:", cocheActual.getAnyo());
+					if (anyoStr != null && !anyoStr.isEmpty()) {
+						int anyo = Integer.parseInt(anyoStr);
+						if (anyo != cocheActual.getAnyo()) cambios.put("anyo", anyo);
+					}
+
+					// Diálogo para modificar el color
+					Color[] choices_colores = Color.values();
+					Color color = (Color) JOptionPane.showInputDialog(null, "Elige el nuevo color del coche:",
+									"Modificar Color", JOptionPane.QUESTION_MESSAGE, null,
+									choices_colores, cocheActual.getColor());
+					if (color != null && color != cocheActual.getColor()) cambios.put("color", color);
+
+					// Diálogo para modificar el kilometraje
+					String kilometrajeStr = JOptionPane.showInputDialog("Introduce el nuevo kilometraje del coche:", cocheActual.getKilometraje());
+					if (kilometrajeStr != null && !kilometrajeStr.isEmpty()) {
+						int kilometraje = Integer.parseInt(kilometrajeStr);
+						if (kilometraje != cocheActual.getKilometraje()) cambios.put("kilometraje", kilometraje);
+					}
+
+					// Diálogo para modificar el precio
+					String precioStr = JOptionPane.showInputDialog("Introduce el nuevo precio del coche:", cocheActual.getPrecio());
+					if (precioStr != null && !precioStr.isEmpty()) {
+						int precio = Integer.parseInt(precioStr);
+						if (precio != cocheActual.getPrecio()) cambios.put("precio", precio);
+					}
+
+					// Diálogo para modificar el estado (nuevo o usado)
+					String estadoStr = JOptionPane.showInputDialog("Introduce el nuevo estado del coche (true para nuevo, false para usado):", cocheActual.isNuevo());
+					if (estadoStr != null && !estadoStr.isEmpty()) {
+						boolean estado = Boolean.parseBoolean(estadoStr);
+						if (estado != cocheActual.isNuevo()) cambios.put("estado", estado);
+					}
+
+					if (!cambios.isEmpty()) {
+						// Llamada a la lógica cliente que conecta con la API para modificar
+						System.out.println("Modificando coche...");
+						LogicaCliente logicaCliente = new LogicaCliente("localhost", "8080");
+						logicaCliente.modificarCoche(cocheActual, cambios);
+						JOptionPane.showMessageDialog(null, "Coche modificado exitosamente");
+					} else {
+						JOptionPane.showMessageDialog(null, "No se realizó ninguna modificación.");
+					}
+				} catch (NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null, "Error en la entrada de datos: " + ex.getMessage());
+				} catch (Exception ex) {
+					JOptionPane.showMessageDialog(null, "Error al modificar el coche: " + ex.getMessage());
+				}
+
 			}
 		});
 		
