@@ -1,4 +1,4 @@
-# Proyecto para la asignatura Proceso de Software y Calidad, 
+# Proyecto para la asignatura Proceso de Software y Calidad
 ## Grupo 2, curso 2023-24
 ### Universidad de Deusto
 
@@ -6,13 +6,14 @@
 Este proyecto tiene como objetivo aprender a utilizar la metodología SCRUM para la gestión de proyectos en equipos. Más que las tecnologías utilizadas, que deben ser usadas adecuadamente, por supuesto, se buscará aplicar correctamente la metodología mencionada.
 
 ## Cómo construir y ejecutar el programa
-1. Tener instalado Java y Mavevn.
-2. Haciendo uso de Maven, compilar el programa con `mvn compile`.
-3. Ejecutar la parte del programa deseada desde Maven:
-    - Servidor:          `mvn exec:java -Pservidor`
-    - Cliente (usuario): `mvn exec:java -Pcliente_usuario`
-    - Cliente (admin):   `mvn exec:java -Pcliente_admin`
-* En un futuro cercano será necesario tener instalada una base de datos SQL y configurar los archivos con la información necesaria para establecer la conexión.
+1. Tener instalado Java y Maven.
+2. Configurar la base de datos:
+    - En el archivo `datanucleus.properties` debe modificar los campos `ConnectionURL`, `ConnectionUserName` y `ConnectionPassword` con los valores adecuado para realizar la conexión con su base de datos.
+    - En el archivo `config_database.sql` se encuentran las consultas SQL para crear la tabla necesaria y para insertar algunos datos de prueba.
+3. Haciendo uso de Maven, compilar el programa con `mvn compile`.
+4. Ejecutar la parte del programa deseada desde Maven:
+    - Servidor:          `mvn jetty:run`
+    - Cliente:           `mvn exec:java -Pcliente`
 
 ## Estructura y dependencias
 Existen dos paquetes dentro de nuestra aplicación, uno contiene la lógica de la app (lado servidor) y otro la interfaz gráfica (lado cliente). Todas las dependencias se encuentran en el archivo `pom`.

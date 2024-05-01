@@ -192,6 +192,31 @@
     </build>
 
 	<profiles>
+
+		<profile>
+			<id>cliente</id>
+			<build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.2.1</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <mainClass>gui.Main</mainClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+		</profile>
+
+
 		<!-- <profile>
 			<id>servidor</id>
 			<build>
@@ -218,7 +243,7 @@
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>
 							</arguments> -->
-		<profile>
+		<!-- <profile>
 			<id>cliente_usuario</id>
 			<build>
                 <plugins>
@@ -261,7 +286,7 @@
                     </plugin>
                 </plugins>
             </build>
-		</profile>
+		</profile> -->
 
 	</profiles>
 
