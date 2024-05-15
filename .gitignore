@@ -20,3 +20,6 @@ buildNumber.properties
 
 example-jersey-jdo-mysql/
 */target/
+.metadata/
+
+.settings/

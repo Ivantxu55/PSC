@@ -1,28 +1,64 @@
-import static org.junit.jupiter.api.Assertions.*;
+package domain.jdo;
+
+import es.deusto.spq.client.ExampleClient;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.*;
 
-import domain.jdo.Coche;
-import domain.jdo.Color;
-import domain.jdo.Marca;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class CocheTests {
 
     private Coche coche;
 
+    @Mock
+    private Client client;
+
+    @Mock(answer=Answers.RETURNS_DEEP_STUBS)
+    private WebTarget webTarget;
+
+    @Mock
+    private Coche cocheMock = mock(Coche.class);
+
+    @Mock
+    private Usuario usuarioMock = mock(Usuario.class);
+
+    private ExampleClient exampleClient;
+
     @BeforeEach
     public void setUp() {
-        coche = new Coche(Marca.Ford, 2020, Color.Black, 5000, 20000, false);
-    }
+        MockitoAnnotations.openMocks(this);
 
+        // prepare static mock of ClientBuilder
+        try (MockedStatic<ClientBuilder> clientBuilder = Mockito.mockStatic(ClientBuilder.class)) {
+            clientBuilder.when(ClientBuilder::newClient).thenReturn(client);
+            when(client.target("http://localhost:8080/rest/resource")).thenReturn(webTarget);
+
+            exampleClient = new ExampleClient("localhost", "8080");
+        }
+    }
     @Test
     public void testConstructorAndGetter() {
-        assertEquals(Marca.Ford, coche.getMarca());
-        assertEquals(2020, coche.getAnyo());
-        assertEquals(Color.Black, coche.getColor());
-        assertEquals(5000, coche.getKilometraje());
-        assertEquals(20000, coche.getPrecio());
-        assertFalse(coche.isNuevo());
+        when(cocheMock.getMarca()).thenReturn(Marca.Ford);
+        when(cocheMock.getAnyo()).thenReturn(2020);
+        when(cocheMock.getColor()).thenReturn(Color.Black);
+        when(cocheMock.getKilometraje()).thenReturn(5000);
+        when(cocheMock.getPrecio()).thenReturn(20000);
+        when(cocheMock.isNuevo()).thenReturn(false);
+
+        // Verify that the mock object behaves as expected
+        assertEquals(Marca.Ford, cocheMock.getMarca());
+        assertEquals(2020, cocheMock.getAnyo());
+        assertEquals(Color.Black, cocheMock.getColor());
+        assertEquals(5000, cocheMock.getKilometraje());
+        assertEquals(20000, cocheMock.getPrecio());
+        assertFalse(cocheMock.isNuevo());
     }
 
     @Test
