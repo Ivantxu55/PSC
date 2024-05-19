@@ -3,14 +3,25 @@ package gui;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 
 import javax.swing.JFrame;
 
+import domain.jdo.Coche;
+import domain.jdo.Usuario;
 import metodosGui.MetodosGUI;
 
 import javax.swing.*;
 
 public class VentanaRegistrarse extends JFrame{
+	
+	ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
 	
 	/**
 	 * 
@@ -18,6 +29,8 @@ public class VentanaRegistrarse extends JFrame{
 	private static final long serialVersionUID = 1L;
 
 	public VentanaRegistrarse() {
+		
+		//listaUsuarios.add(new Usuario("", null, "", "", new ArrayList<Coche>()));
 		
 		// Configuración de la ventana.
 		setTitle("Ventana registrarse");
@@ -96,10 +109,181 @@ public class VentanaRegistrarse extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				//TODO
-				VentanaPrincipal vp = new VentanaPrincipal();
-				dispose();
-				
+				// Se lee Usuarios.txt y cada usuario se mete en listaUsuarios.
+				leerBinarioUsuarios();
+					
+				// Se comprueba que las contraseñas coincidan.
+					if ( !txtContrasenya.getText().equals(txtRepetirContrasenya.getText()) ) {
+						lErrorContrasenya.setVisible(true);
+						lErrorContrasenya2.setVisible(true);
+					} else {
+						lErrorContrasenya.setVisible(false);
+						lErrorContrasenya2.setVisible(false);
+					}
+					
+					// Se recorre listaUsuarios y se comprueba que el campo no este vacío, ni sea espacio, ni null y que además sea correcto, es decir, 
+					// que no se duplique el nombre y el mail.
+					for (Usuario u : listaUsuarios) {
+						
+						if ( txtUsuario.getText().equals("") || txtUsuario.getText().equals(" ") || txtUsuario.getText().equals(null) || 
+								txtUsuario.getText().equals(u.getNombre()) ) {
+							lErrorUsuario.setVisible(true);
+								
+								if (txtEmail.getText().equals("") || txtEmail.getText().equals(" ") || txtEmail.getText().equals(null) || 
+										txtEmail.getText().equals(u.getCorreo()) ) {
+									lErrorEmail.setVisible(true);
+									
+										if (txtContrasenya.getText().equals("") || txtContrasenya.getText().equals(" ") || 
+												txtContrasenya.getText().equals(null) || 
+												!txtContrasenya.getText().equals(txtRepetirContrasenya.getText()) ) {
+											lErrorContrasenya.setVisible(true);
+											
+											if (txtRepetirContrasenya.getText().equals("") || txtRepetirContrasenya.getText().equals(" ") || 
+													txtRepetirContrasenya.getText().equals(null) || 
+													!txtContrasenya.getText().equals(txtRepetirContrasenya.getText())) {
+												lErrorContrasenya2.setVisible(true);
+												break;
+												
+											} else {
+												lErrorContrasenya2.setVisible(false);
+												break;
+											}
+											
+										} else {
+											lErrorContrasenya.setVisible(false);
+											
+											if (txtRepetirContrasenya.getText().equals("") || txtRepetirContrasenya.getText().equals(" ") || 
+													txtRepetirContrasenya.getText().equals(null) || 
+													!txtContrasenya.getText().equals(txtRepetirContrasenya.getText())) {
+												lErrorContrasenya2.setVisible(true);
+												break;
+												
+											} else {
+												lErrorContrasenya2.setVisible(false);
+												break;
+											}
+										}
+										
+									} else {
+										lErrorEmail.setVisible(false);
+										
+										if (txtContrasenya.getText().equals("") || txtContrasenya.getText().equals(" ") || 
+												txtContrasenya.getText().equals(null) || 
+												!txtContrasenya.getText().equals(txtRepetirContrasenya.getText()) ) {
+											lErrorContrasenya.setVisible(true);
+											
+											if (txtRepetirContrasenya.getText().equals("") || txtRepetirContrasenya.getText().equals(" ") || 
+													txtRepetirContrasenya.getText().equals(null) || 
+													!txtContrasenya.getText().equals(txtRepetirContrasenya.getText())) {
+												lErrorContrasenya2.setVisible(true);
+												break;
+												
+											} else {
+												lErrorContrasenya2.setVisible(false);
+												break;
+											}
+											
+										} else {
+											lErrorContrasenya.setVisible(false);
+											
+											if (txtRepetirContrasenya.getText().equals("") || txtRepetirContrasenya.getText().equals(" ") || 
+													txtRepetirContrasenya.getText().equals(null) || 
+													!txtContrasenya.getText().equals(txtRepetirContrasenya.getText())) {
+												lErrorContrasenya2.setVisible(true);
+												break;
+												
+											} else {
+												lErrorContrasenya2.setVisible(false);
+												break;
+											}
+										}
+									}	
+						} else {
+							lErrorUsuario.setVisible(false);
+							
+							if (txtEmail.getText().equals("") || txtEmail.getText().equals(" ") || txtEmail.getText().equals(null) || 
+									txtEmail.getText().equals(u.getCorreo()) ) {
+								lErrorEmail.setVisible(true);
+								
+									if (txtContrasenya.getText().equals("") || txtContrasenya.getText().equals(" ") || 
+											txtContrasenya.getText().equals(null) || 
+											!txtContrasenya.getText().equals(txtRepetirContrasenya.getText()) ) {
+										lErrorContrasenya.setVisible(true);
+										
+										if (txtRepetirContrasenya.getText().equals("") || txtRepetirContrasenya.getText().equals(" ") || 
+												txtRepetirContrasenya.getText().equals(null) || 
+												!txtContrasenya.getText().equals(txtRepetirContrasenya.getText())) {
+											lErrorContrasenya2.setVisible(true);
+											break;
+											
+										} else {
+											lErrorContrasenya2.setVisible(false);
+											break;
+										}
+										
+									} else {
+										lErrorContrasenya.setVisible(false);
+										
+										if (txtRepetirContrasenya.getText().equals("") || txtRepetirContrasenya.getText().equals(" ") || 
+												txtRepetirContrasenya.getText().equals(null) || 
+												!txtContrasenya.getText().equals(txtRepetirContrasenya.getText())) {
+											lErrorContrasenya2.setVisible(true);
+											break;
+											
+										} else {
+											lErrorContrasenya2.setVisible(false);
+											break;
+										}
+									}
+									
+								} else {
+									lErrorEmail.setVisible(false);
+									
+									if (txtContrasenya.getText().equals("") || txtContrasenya.getText().equals(" ") || 
+											txtContrasenya.getText().equals(null) || 
+											!txtContrasenya.getText().equals(txtRepetirContrasenya.getText()) ) {
+										lErrorContrasenya.setVisible(true);
+										
+										if (txtRepetirContrasenya.getText().equals("") || txtRepetirContrasenya.getText().equals(" ") || 
+												txtRepetirContrasenya.getText().equals(null) || 
+												!txtContrasenya.getText().equals(txtRepetirContrasenya.getText())) {
+											lErrorContrasenya2.setVisible(true);
+											break;
+											
+										} else {
+											lErrorContrasenya2.setVisible(false);
+											break;
+										}
+										
+									} else {
+										lErrorContrasenya.setVisible(false);
+										
+										if (txtRepetirContrasenya.getText().equals("") || txtRepetirContrasenya.getText().equals(" ") || 
+												txtRepetirContrasenya.getText().equals(null) || 
+												!txtContrasenya.getText().equals(txtRepetirContrasenya.getText())) {
+											lErrorContrasenya2.setVisible(true);
+											break;
+											
+										} else {
+											lErrorContrasenya2.setVisible(false);
+										}
+									}
+								}
+						}
+					}
+					
+					// Si no ha habido errores se agrga el nuevo usuario.
+					if (lErrorUsuario.isVisible() == false && lErrorEmail.isVisible() == false && lErrorContrasenya.isVisible() == false && 
+							lErrorContrasenya2.isVisible() == false) {
+						
+						Usuario nuevoUsuario = new Usuario(txtUsuario.getText(), new Date(), txtEmail.getText(), txtContrasenya.getText(), new ArrayList<Coche>());
+						
+						anyadirBinarioUsuarios(nuevoUsuario);
+						
+						//dispose();
+						//VentanaPrincipal vp = new VentanaPrincipal(mapaUsuarioComprados);
+						JOptionPane.showMessageDialog(null, "Registro realizado con éxito");
+					}
 			}
 		});
 		
@@ -133,6 +317,36 @@ public class VentanaRegistrarse extends JFrame{
 		// Configuración de la ventana.
 		setVisible(true);
 		
+	}
+	
+	public void leerBinarioUsuarios() {
+        try (FileInputStream fis = new FileInputStream("src\\main\\resources\\usuarios.bin");
+                ObjectInputStream ois = new ObjectInputStream(fis)) {
+
+               while (fis.available() > 0) {
+                   Usuario usuario = (Usuario) ois.readObject();
+                   System.out.println("Usuario leído: " + usuario);
+                   listaUsuarios.add(usuario);
+               }
+
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
+	}
+	
+	public void anyadirBinarioUsuarios(Usuario nuevoUsuario) {
+        try (FileOutputStream fos = new FileOutputStream("src\\main\\resources\\usuarios.bin");
+                ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+        	
+        	  for (int i = 0; i < listaUsuarios.size(); i++) {
+        		  oos.writeObject(listaUsuarios.get(i));
+        	  }
+
+               oos.writeObject(nuevoUsuario);
+               
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
 	}
 	
 	public static void main(String[] args) {

@@ -1,5 +1,6 @@
 package domain.jdo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
@@ -8,7 +9,7 @@ import java.util.Objects;
  * Clase Usuario que representa un usuario con los parametros: nombre, fechaNacimiento, correo, contrasenia y coches.
  *
  */
-public class Usuario {
+public class Usuario implements Serializable{
     private String nombre;
     private Date fechaNacimiento;
     private String correo;
