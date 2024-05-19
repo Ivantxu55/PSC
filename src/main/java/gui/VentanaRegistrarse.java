@@ -280,8 +280,8 @@ public class VentanaRegistrarse extends JFrame{
 						
 						anyadirBinarioUsuarios(nuevoUsuario);
 						
-						//dispose();
-						//VentanaPrincipal vp = new VentanaPrincipal(mapaUsuarioComprados);
+						dispose();
+						VentanaPrincipal vp = new VentanaPrincipal(nuevoUsuario);
 						JOptionPane.showMessageDialog(null, "Registro realizado con éxito");
 					}
 			}
