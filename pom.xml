@@ -143,15 +143,20 @@
                     <target>${maven.compiler.target}</target>
                 </configuration>
 			</plugin>
-
-                <plugin>
-                    <groupId>com.soebes.maven.plugins.dmg</groupId>
-                    <artifactId>doxygen-maven-plugin</artifactId>
-                    <version>1.1.0</version>
-                    <configuration>
-                        <configurationFile>${doxygen.config.file}</configurationFile>
-                    </configuration>
-                </plugin>
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-javadoc-plugin</artifactId>
+    <version>3.0.0</version>
+    <configuration>
+        <doclet>com.github.markusbernhardt.xmldoclet.XmlDoclet</doclet>
+        <docletArtifact>
+            <groupId>com.github.markusbernhardt</groupId>
+            <artifactId>xml-doclet</artifactId>
+            <version>1.0.4</version>
+        </docletArtifact>
+        <useStandardDocletOptions>false</useStandardDocletOptions>
+    </configuration>
+</plugin>
 
 
             <!-- <plugin>

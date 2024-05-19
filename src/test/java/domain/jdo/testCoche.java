@@ -1,6 +1,6 @@
 package domain.jdo;
 
-import es.deusto.spq.client.ExampleClient;
+//import es.deusto.spq.client.ExampleClient;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
@@ -32,10 +32,16 @@ class CocheTests {
     @Mock
     private Usuario usuarioMock = mock(Usuario.class);
 
-    private ExampleClient exampleClient;
+//    private ExampleClient exampleClient;
 
     @BeforeEach
     public void setUp() {
+        coche = new Coche(Marca.Ford, 2020, Color.Black, 5000, 20000, false);
+
+        // Initialize the mocks
+        MockitoAnnotations.openMocks(this);
+
+
 //        MockitoAnnotations.openMocks(this);
 //
 //        // prepare static mock of ClientBuilder
