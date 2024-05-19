@@ -1,0 +1,31 @@
+\chapter{Proyecto para la asignatura Proceso de Software y Calidad}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{Proyecto para la asignatura Proceso de Software y Calidad@{Proyecto para la asignatura Proceso de Software y Calidad}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Grupo 2, curso 2023-\/24}{Grupo 2, curso 2023-\/24}}\label{md__r_e_a_d_m_e_autotoc_md1}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsection{\texorpdfstring{Universidad de Deusto}{Universidad de Deusto}}\label{md__r_e_a_d_m_e_autotoc_md2}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{Introducción}{Introducción}}\label{md__r_e_a_d_m_e_autotoc_md3}
+Este proyecto tiene como objetivo aprender a utilizar la metodología SCRUM para la gestión de proyectos en equipos. Más que las tecnologías utilizadas, que deben ser usadas adecuadamente, por supuesto, se buscará aplicar correctamente la metodología mencionada.\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{\texorpdfstring{Cómo construir y ejecutar el programa}{Cómo construir y ejecutar el programa}}\label{md__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyEnumerate}
+\item Tener instalado Java y Maven.
+\item Configurar la base de datos\+:
+\begin{DoxyItemize}
+\item En el archivo {\ttfamily datanucleus.\+properties} debe modificar los campos {\ttfamily Connection\+URL}, {\ttfamily Connection\+User\+Name} y {\ttfamily Connection\+Password} con los valores adecuado para realizar la conexión con su base de datos.
+\item En el archivo {\ttfamily config\+\_\+database.\+sql} se encuentran las consultas SQL para crear la tabla necesaria y para insertar algunos datos de prueba.
+\end{DoxyItemize}
+\item Haciendo uso de Maven, compilar el programa con {\ttfamily mvn compile}.
+\item Ejecutar la parte del programa deseada desde Maven\+:
+\begin{DoxyItemize}
+\item Servidor\+: {\ttfamily mvn jetty\+:run}
+\item Cliente\+: {\ttfamily mvn exec\+:java -\/Pcliente}
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{\texorpdfstring{Estructura y dependencias}{Estructura y dependencias}}\label{md__r_e_a_d_m_e_autotoc_md5}
+Existen dos paquetes dentro de nuestra aplicación, uno contiene la lógica de la app (lado servidor) y otro la interfaz gráfica (lado cliente). Todas las dependencias se encuentran en el archivo {\ttfamily pom}.\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{\texorpdfstring{Contacto de los miembros del equipo}{Contacto de los miembros del equipo}}\label{md__r_e_a_d_m_e_autotoc_md6}
+
+\begin{DoxyItemize}
+\item @\+Ivantxu55 -\/ \href{mailto:ivan.casado@opendeusto.es}{\texttt{ ivan.\+casado@opendeusto.\+es}}
+\item @\+Federriko97 -\/ \href{mailto:federico.alonso@opendeusto.es}{\texttt{ federico.\+alonso@opendeusto.\+es}}
+\item @maria\+Mardones -\/ \href{mailto:maria.mardones@opendeusto.es}{\texttt{ maria.\+mardones@opendeusto.\+es}}
+\item @jrsbajo -\/ \href{mailto:j.suarezbajo@opendeusto.es}{\texttt{ j.\+suarezbajo@opendeusto.\+es}} 
+\end{DoxyItemize}

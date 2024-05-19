@@ -33,15 +33,15 @@ class CocheTests {
 
     @BeforeEach
     public void setUp() {
-        MockitoAnnotations.openMocks(this);
-
-        // prepare static mock of ClientBuilder
-        try (MockedStatic<ClientBuilder> clientBuilder = Mockito.mockStatic(ClientBuilder.class)) {
-            clientBuilder.when(ClientBuilder::newClient).thenReturn(client);
-            when(client.target("http://localhost:8080/rest/resource")).thenReturn(webTarget);
-
-            exampleClient = new ExampleClient("localhost", "8080");
-        }
+//        MockitoAnnotations.openMocks(this);
+//
+//        // prepare static mock of ClientBuilder
+//        try (MockedStatic<ClientBuilder> clientBuilder = Mockito.mockStatic(ClientBuilder.class)) {
+//            clientBuilder.when(ClientBuilder::newClient).thenReturn(client);
+//            when(client.target("http://localhost:8080/rest/resource")).thenReturn(webTarget);
+//
+//            exampleClient = new ExampleClient("localhost", "8080");
+//        }
     }
     @Test
     public void testConstructorAndGetter() {

@@ -121,12 +121,14 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+        <!--
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-jersey-jdo-mysql</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
+        -->
 
     </dependencies>
 
@@ -142,7 +144,17 @@
                 </configuration>
 			</plugin>
 
-			<!-- <plugin>
+                <plugin>
+                    <groupId>com.soebes.maven.plugins.dmg</groupId>
+                    <artifactId>doxygen-maven-plugin</artifactId>
+                    <version>1.1.0</version>
+                    <configuration>
+                        <configurationFile>${doxygen.config.file}</configurationFile>
+                    </configuration>
+                </plugin>
+
+
+            <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.3.0</version>
