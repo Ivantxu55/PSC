@@ -3,6 +3,10 @@ package gui;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -26,6 +30,7 @@ import javax.jdo.PersistenceManagerFactory;
 
 public class VentanaPrincipal extends JFrame{
 	
+	ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
 	private JTable tablaCoches;
 	private Usuario usuarioLogeado;
 	
@@ -251,6 +256,8 @@ public class VentanaPrincipal extends JFrame{
 	}
 	
 	public VentanaPrincipal(Usuario userLog) {
+		
+		usuarioLogeado = userLog;
 
 		// Configuración de la ventana.
 		setTitle("Menú principal");
@@ -359,7 +366,7 @@ public class VentanaPrincipal extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				VentanaVerPerfil vrp = new VentanaVerPerfil();
+				VentanaVerPerfil vrp = new VentanaVerPerfil(usuarioLogeado);
 				dispose();
 				
 			}
@@ -369,7 +376,7 @@ public class VentanaPrincipal extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+								
 				usuarioLogeado = null;
 				MetodosGUI m = new MetodosGUI();
 				m.abrirVentanaInicio();

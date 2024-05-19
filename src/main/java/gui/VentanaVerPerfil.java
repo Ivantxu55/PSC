@@ -3,18 +3,29 @@ package gui;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
-import javax.swing.JFrame;
+import domain.jdo.Usuario;
+
 import javax.swing.*;
 
 public class VentanaVerPerfil extends JFrame{
+	
+	ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
+	private Usuario usuarioLogeado;
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public VentanaVerPerfil() {
+	public VentanaVerPerfil(Usuario userLog) {
+		
+		usuarioLogeado = userLog;
 		
 		// Configuración de la ventana.
 		setTitle("Ventana ver perfil");
@@ -33,6 +44,7 @@ public class VentanaVerPerfil extends JFrame{
 		
 		// Creación de componentes de la ventana y su configuración.
 		JButton btnInicio = new JButton("Inicio");
+		JButton btnEliminarCuenta = new JButton("Eliminar cuenta");
 		JPanel pNombreTienda = new JPanel();
 		JPanel pVacio1 = new JPanel();
 		JButton btnDesconectarse = new JButton("Desconectarse");
@@ -43,12 +55,32 @@ public class VentanaVerPerfil extends JFrame{
 		
 		// Configuración de los eventos.
 		
+		btnEliminarCuenta.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				leerBinarioUsuarios();
+				
+				for (int i = 0; i < listaUsuarios.size(); i++) {
+					if (listaUsuarios.get(i).getNombre().equals(usuarioLogeado.getNombre()) && 
+							listaUsuarios.get(i).getCorreo().equals(usuarioLogeado.getCorreo())) {
+						listaUsuarios.remove(i);
+						break;
+					}
+				}
+				
+				escribirBinarioUsuarios();
+				
+			}
+		});
+		
 		btnInicio.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				VentanaPrincipal vp = new VentanaPrincipal();
+				VentanaPrincipal vp = new VentanaPrincipal(usuarioLogeado);
 				dispose();
 				
 			}
@@ -67,6 +99,7 @@ public class VentanaVerPerfil extends JFrame{
 		pNorte.add(btnInicio);
 		pNorte.add(pNombreTienda);
 		pNorte.add(pVacio1);
+		pNorte.add(btnEliminarCuenta);
 		pNorte.add(btnDesconectarse);
 		pCentro.add(lUsuario);
 		pCentro.add(lContrasenya);
@@ -81,10 +114,33 @@ public class VentanaVerPerfil extends JFrame{
 		setVisible(true);
 		
 	}
+	
+	public void leerBinarioUsuarios() {
+        try (FileInputStream fis = new FileInputStream("src\\main\\resources\\usuarios.bin");
+                ObjectInputStream ois = new ObjectInputStream(fis)) {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		VentanaVerPerfil vvp = new VentanaVerPerfil();
+               while (fis.available() > 0) {
+                   Usuario usuario = (Usuario) ois.readObject();
+                   System.out.println("Usuario leído: " + usuario);
+                   listaUsuarios.add(usuario);
+               }
+
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
+	}
+	
+	public void escribirBinarioUsuarios() {
+        try (FileOutputStream fos = new FileOutputStream("src\\main\\resources\\usuarios.bin");
+                ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+        	
+        	  for (int i = 0; i < listaUsuarios.size(); i++) {
+        		  oos.writeObject(listaUsuarios.get(i));
+        	  }
+               
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
 	}
 
 }
