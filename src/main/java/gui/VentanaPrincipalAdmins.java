@@ -24,12 +24,14 @@ import javax.jdo.PersistenceManagerFactory;
 
 import java.util.Map;
 import java.util.HashMap;
-
+/**
+ * Ventana principal.
+ * Ventana que muestra los coches disponibles en la tienda y permite filtrarlos y comprarlos.
+ * @return VentanaPrincipal
+ */
 public class VentanaPrincipalAdmins extends JFrame{
 	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private JTable tablaCoches;
 

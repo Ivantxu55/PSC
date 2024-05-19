@@ -8,8 +8,14 @@ import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.IdGeneratorStrategy;
 
+/**
+ * Clase Coche que representa un coche con los parametros: id, marca, anyo, color, kilometraje, precio y nuevo.
+ *
+ */
+
 @PersistenceCapable
 public class Coche {
+
 
    	@PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
@@ -28,6 +34,16 @@ public class Coche {
     @Persistent
     private boolean nuevo;
 
+    /**
+     * Constructor de la clase Coche.
+     *
+     * @param marca marca del coche
+     * @param anyo anyo de fabricacion del coche
+     * @param color color del coche
+     * @param kilometraje kilometraje del coche
+     * @param precio precio del coche
+     * @param nuevo si el coche es nuevo o no
+     */
     public Coche(Marca marca, int anyo, Color color, int kilometraje, int precio, boolean nuevo) {
         // this.id = id;
         this.marca = marca;
@@ -38,6 +54,9 @@ public class Coche {
         this.nuevo = nuevo;
     }
 
+    /**
+     * Constructor vacio de la clase Coche.
+     */
     public Coche() {
         this.id = 0;
         this.marca = Marca.Ford;

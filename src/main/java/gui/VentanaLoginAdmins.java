@@ -5,15 +5,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-
+/**
+ * Ventana de login para los administradores.
+ * Ventana que permite a los administradores loguearse en la aplicación.
+ * @return VentanaLoginAdmins
+ */
 public class VentanaLoginAdmins extends JFrame{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	public VentanaLoginAdmins() {
+
 		
 		// Configuración de la ventana.
 		setTitle("Ventana login Admins");

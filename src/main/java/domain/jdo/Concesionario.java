@@ -2,8 +2,11 @@ package domain.jdo;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * Clase que representa un concesionario con los parametros: nombre, localidad y coches.
+ */
 public class Concesionario {
+
 
     private String nombre;
     private String localidad;
@@ -16,6 +19,12 @@ public class Concesionario {
         this.coches = new ArrayList<Coche>();
     }
 
+    /**
+     *@param nombre: nombre del concesionario
+     *@param localidad: localidad del concesionario
+     *@param coches: lista de coches del concesionario
+     * @see Coche
+     */
     // declaramos el constructor (sobrecargar método)
     public Concesionario(String nombre, String localidad, ArrayList<Coche> coches){
         this.nombre = nombre;

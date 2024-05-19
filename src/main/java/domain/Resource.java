@@ -24,10 +24,14 @@ import java.util.Map;
 
 import domain.jdo.Marca;
 import domain.jdo.Color;
-
+/**
+ * Clase que representa un recurso REST con los metodos para agregar, eliminar y modificar coches.
+ * @see Coche
+ */
 @Path("/resource")
 @Produces(MediaType.APPLICATION_JSON)
 public class Resource {
+
 
     public static void resource(String[] args) {
         // configurando JDO para persistencia

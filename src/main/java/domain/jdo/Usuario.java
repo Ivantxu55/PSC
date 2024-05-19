@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * Clase Usuario que representa un usuario con los parametros: nombre, fechaNacimiento, correo, contrasenia y coches.
+ *
+ */
 public class Usuario {
     private String nombre;
     private Date fechaNacimiento;
@@ -11,6 +15,15 @@ public class Usuario {
     private String contrasenia;
     private ArrayList<Coche> coches;
 
+    /**
+     * Constructor de la clase Usuario.
+     *
+     * @param nombre nombre del usuario
+     * @param fechaNacimiento fecha de nacimiento del usuario
+     * @param correo correo del usuario
+     * @param contrasenia contrasenia del usuario
+     * @param coches lista de coches del usuario
+     */
     public Usuario(String nombre, Date fechaNacimiento, String correo, String contrasenia, ArrayList<Coche> coches) {
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;

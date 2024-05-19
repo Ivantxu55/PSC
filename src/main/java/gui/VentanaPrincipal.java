@@ -18,7 +18,11 @@ import metodosGui.MetodosGUI;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
-
+/**
+ * Ventana principal.
+ * Ventana que muestra los coches disponibles en la tienda y permite filtrarlos y comprarlos.
+ * @return VentanaPrincipal
+ */
 public class VentanaPrincipal extends JFrame{
 	
 	/**
@@ -29,6 +33,7 @@ public class VentanaPrincipal extends JFrame{
 	private Usuario usuarioLogeado;
 
 	public VentanaPrincipal() {
+
 		
 		usuarioLogeado = null;
 		

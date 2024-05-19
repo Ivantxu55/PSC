@@ -9,15 +9,18 @@ import javax.swing.JFrame;
 import metodosGui.MetodosGUI;
 
 import javax.swing.*;
-
+/**
+ * Ventana de login.
+ * Ventana que permite al usuario loguearse en la aplicación.
+ * @return VentanaLogin
+ */
 public class VentanaLogin extends JFrame{
 	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	public VentanaLogin() {
+
 		
 		// Configuración de la ventana.
 		setTitle("Ventana login");

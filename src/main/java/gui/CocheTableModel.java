@@ -6,8 +6,11 @@ import javax.swing.table.DefaultTableModel;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.List;
-
+/**
+ * Clase que representa un modelo de tabla para los coches
+ */
 public class CocheTableModel extends DefaultTableModel {
+
     private final List<String> headers = Arrays.asList("Marca", "Año", "Color", "Kms", "Precio", "Estado");
     private List<Coche> coches;
 
@@ -38,6 +41,12 @@ public class CocheTableModel extends DefaultTableModel {
         return headers.get(column);
     }
 
+    /**
+     * Devuelve el valor de la celda en la fila y columna especificadas.
+     * @param row             the row whose value is to be queried
+     * @param column          the column whose value is to be queried
+     * @return
+     */
     public Object getValueAt(int row, int column) {
         Coche coche = coches.get(row);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");

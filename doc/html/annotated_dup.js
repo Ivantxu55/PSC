@@ -2,16 +2,16 @@ var annotated_dup =
 [
     [ "domain", null, [
       [ "jdo", null, [
-        [ "Coche", "classdomain_1_1jdo_1_1_coche.html", null ],
-        [ "Color", "enumdomain_1_1jdo_1_1_color.html", null ],
-        [ "Concesionario", "classdomain_1_1jdo_1_1_concesionario.html", null ],
-        [ "Marca", "enumdomain_1_1jdo_1_1_marca.html", null ],
-        [ "Usuario", "classdomain_1_1jdo_1_1_usuario.html", null ]
+        [ "Coche", "classdomain_1_1jdo_1_1_coche.html", "classdomain_1_1jdo_1_1_coche" ],
+        [ "Color", "enumdomain_1_1jdo_1_1_color.html", "enumdomain_1_1jdo_1_1_color" ],
+        [ "Concesionario", "classdomain_1_1jdo_1_1_concesionario.html", "classdomain_1_1jdo_1_1_concesionario" ],
+        [ "Marca", "enumdomain_1_1jdo_1_1_marca.html", "enumdomain_1_1jdo_1_1_marca" ],
+        [ "Usuario", "classdomain_1_1jdo_1_1_usuario.html", "classdomain_1_1jdo_1_1_usuario" ]
       ] ],
       [ "Resource", "classdomain_1_1_resource.html", null ]
     ] ],
     [ "gui", null, [
-      [ "CocheTableModel", "classgui_1_1_coche_table_model.html", null ],
+      [ "CocheTableModel", "classgui_1_1_coche_table_model.html", "classgui_1_1_coche_table_model" ],
       [ "LogicaCliente", "classgui_1_1_logica_cliente.html", null ],
       [ "Main", "classgui_1_1_main.html", null ],
       [ "VentanaLogin", "classgui_1_1_ventana_login.html", null ],

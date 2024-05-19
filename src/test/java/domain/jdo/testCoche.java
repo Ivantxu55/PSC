@@ -12,8 +12,11 @@ import javax.ws.rs.client.WebTarget;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
+/**
+ * Clase que representa los tests de la clase Coche
+ */
 class CocheTests {
+
 
     private Coche coche;
 
@@ -43,6 +46,10 @@ class CocheTests {
 //            exampleClient = new ExampleClient("localhost", "8080");
 //        }
     }
+
+    /**
+     * Test para comprobar el constructor y los getters de la clase Coche
+     */
     @Test
     public void testConstructorAndGetter() {
         when(cocheMock.getMarca()).thenReturn(Marca.Ford);
@@ -61,6 +68,9 @@ class CocheTests {
         assertFalse(cocheMock.isNuevo());
     }
 
+    /**
+     * Test para comprobar los setters de la clase Coche
+     */
     @Test
     public void testSetter() {
         coche.setMarca(Marca.Toyota);
@@ -82,6 +92,9 @@ class CocheTests {
         assertTrue(coche.isNuevo());
     }
 
+    /**
+     * Test para comprobar el método equals de la clase Coche
+     */
     @Test
     public void testEquals() {
         Coche sameCoche = new Coche(Marca.Ford, 2020, Color.Black, 5000, 20000, false);
@@ -91,12 +104,18 @@ class CocheTests {
         assertNotEquals(coche, differentCoche);
     }
 
+    /**
+     * Test para comprobar el método hashCode de la clase Coche
+     */
     @Test
     public void testHashCode() {
         Coche sameCoche = new Coche(Marca.Ford, 2020, Color.Black, 5000, 20000, false);
         assertEquals(coche.hashCode(), sameCoche.hashCode());
     }
 
+    /**
+     * Test para comprobar el método toString de la clase Coche
+     */
     @Test
     public void testToString() {
         String expected = "Coche{id=0, marca=Ford, anyo=2020, color=Black, kilometraje=5000, precio=20000, nuevo=false}";
