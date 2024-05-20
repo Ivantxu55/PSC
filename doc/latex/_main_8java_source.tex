@@ -1,0 +1,83 @@
+\doxysection{Main.\+java}
+\hypertarget{_main_8java_source}{}\label{_main_8java_source}\index{src/main/java/gui/Main.java@{src/main/java/gui/Main.java}}
+\mbox{\hyperlink{_main_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00001}00001\ \textcolor{keyword}{package\ }gui;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.awt.*;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00005}00005\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00007}00007\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00008}00008\ \textcolor{keyword}{import}\ javax.swing.JFrame;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00010}00010\ \textcolor{keyword}{import}\ \mbox{\hyperlink{namespacemetodos_gui}{metodosGui}}.\mbox{\hyperlink{classmetodos_gui_1_1_metodos_g_u_i}{MetodosGUI}};}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00012}\mbox{\hyperlink{classgui_1_1_main}{00012}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgui_1_1_main}{Main}}\ \textcolor{keyword}{extends}\ JFrame\{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00013}00013\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00017}00017\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ \textcolor{keywordtype}{long}\ serialVersionUID\ =\ 1L;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00019}\mbox{\hyperlink{classgui_1_1_main_ad0fb3bed25223c5c5329a769dbf91bea}{00019}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classgui_1_1_main_ad0fb3bed25223c5c5329a769dbf91bea}{Main}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00020}00020\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ de\ la\ ventana.}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00022}00022\ \ \ \ \ \ \ \ \ setTitle(\textcolor{stringliteral}{"{}Main"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00023}00023\ \ \ \ \ \ \ \ \ setSize(800,\ 600);}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00024}00024\ \ \ \ \ \ \ \ \ setLocation(400,\ 150);}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00025}00025\ \ \ \ \ \ \ \ \ setDefaultCloseOperation(JFrame.DISPOSE\_ON\_CLOSE);}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00026}00026\ \ \ \ \ \ \ \ \ setLayout(\textcolor{keyword}{new}\ BorderLayout());}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00027}00027\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creación\ de\ contenedores\ de\ la\ ventana\ y\ su\ configuración.}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00029}00029\ \ \ \ \ \ \ \ \ JPanel\ pCentro\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00030}00030\ \ \ \ \ \ \ \ \ pCentro.setLayout(\textcolor{keyword}{new}\ FlowLayout());}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00031}00031\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creación\ de\ componentes\ de\ la\ ventana\ y\ su\ configuración.}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00033}00033\ \ \ \ \ \ \ \ \ JButton\ btnAdmin\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Administrador"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00034}00034\ \ \ \ \ \ \ \ \ JButton\ btnUsuario\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Usuario"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00035}00035\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//TODO}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ de\ los\ eventos.}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00038}00038\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00039}00039\ \ \ \ \ \ \ \ \ btnAdmin.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmetodos_gui_1_1_metodos_g_u_i}{MetodosGUI}}\ m\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classmetodos_gui_1_1_metodos_g_u_i}{MetodosGUI}}();}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m.\mbox{\hyperlink{classmetodos_gui_1_1_metodos_g_u_i_aa22d175d1e7f885fcc4823e3dffc269a}{abrirVentanaLoginAdmins}}();\ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dispose();}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00049}00049\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00050}00050\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00051}00051\ \ \ \ \ \ \ \ \ btnUsuario.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmetodos_gui_1_1_metodos_g_u_i}{MetodosGUI}}\ m\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classmetodos_gui_1_1_metodos_g_u_i}{MetodosGUI}}();}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m.\mbox{\hyperlink{classmetodos_gui_1_1_metodos_g_u_i_a89ba81852054289cc9996105d05b37bb}{abrirVentanaInicio}}();\ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dispose();}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00061}00061\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00062}00062\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Asignación\ de\ los\ componentes\ a\ los\ contenedores.}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00064}00064\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00065}00065\ \ \ \ \ \ \ \ \ pCentro.add(btnAdmin);}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00066}00066\ \ \ \ \ \ \ \ \ pCentro.add(btnUsuario);}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00067}00067\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00068}00068\ \ \ \ \ \ \ \ \ add(pCentro,\ BorderLayout.CENTER);}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00069}00069\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ de\ la\ ventana.}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00071}00071\ \ \ \ \ \ \ \ \ setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00072}00072\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00073}00073\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00075}\mbox{\hyperlink{classgui_1_1_main_a041646fffc0529a864bae17dd55c8514}{00075}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_main_a041646fffc0529a864bae17dd55c8514}{main}}(String[]\ args)\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ Auto-\/generated\ method\ stub}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00077}00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_main}{Main}}\ m\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classgui_1_1_main_ad0fb3bed25223c5c5329a769dbf91bea}{Main}}();}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00080}00080\ \}}
+
+\end{DoxyCode}

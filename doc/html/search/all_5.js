@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['ejecutar_20el_20programa_0',['Cómo construir y ejecutar el programa',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]],
-  ['el_20programa_1',['Cómo construir y ejecutar el programa',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]],
-  ['equipo_2',['Contacto de los miembros del equipo',['../md__r_e_a_d_m_e.html#autotoc_md6',1,'']]],
-  ['estructura_20y_20dependencias_3',['Estructura y dependencias',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'']]]
+  ['honda_0',['Honda',['../enumdomain_1_1jdo_1_1_marca.html#ab17b4ee1d26d54824e4f88b0bd9ed591',1,'domain::jdo::Marca']]],
+  ['hyundai_1',['Hyundai',['../enumdomain_1_1jdo_1_1_marca.html#a69ad0dffb46fb95953b03d7210727bba',1,'domain::jdo::Marca']]]
 ];

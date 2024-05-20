@@ -1,0 +1,121 @@
+\doxysection{test\+Coche.\+java}
+\hypertarget{test_coche_8java_source}{}\label{test_coche_8java_source}\index{src/test/java/domain/jdo/testCoche.java@{src/test/java/domain/jdo/testCoche.java}}
+\mbox{\hyperlink{test_coche_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00001}00001\ \textcolor{keyword}{package\ }domain.jdo;}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00003}00003\ \textcolor{comment}{//import\ es.deusto.spq.client.ExampleClient;}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00004}00004\ \textcolor{keyword}{import}\ org.junit.jupiter.api.BeforeEach;}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00005}00005\ \textcolor{keyword}{import}\ org.junit.jupiter.api.Test;}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00006}00006\ \textcolor{keyword}{import}\ org.mockito.*;}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00008}00008\ \textcolor{keyword}{import}\ javax.ws.rs.client.Client;}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00009}00009\ \textcolor{keyword}{import}\ javax.ws.rs.client.ClientBuilder;}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00010}00010\ \textcolor{keyword}{import}\ javax.ws.rs.client.WebTarget;}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00012}00012\ \textcolor{keyword}{import}\ \textcolor{keyword}{static}\ org.junit.jupiter.api.Assertions.*;}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00013}00013\ \textcolor{keyword}{import}\ \textcolor{keyword}{static}\ org.mockito.Mockito.mock;}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00014}00014\ \textcolor{keyword}{import}\ \textcolor{keyword}{static}\ org.mockito.Mockito.when;}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00018}00018\ \textcolor{keyword}{class\ }CocheTests\ \{}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{private}\ Coche\ coche;}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00023}00023\ \ \ \ \ @Mock}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{private}\ Client\ client;}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00026}00026\ \ \ \ \ @Mock(answer=Answers.RETURNS\_DEEP\_STUBS)}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00027}00027\ \ \ \ \ private\ WebTarget\ webTarget;}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00029}00029\ \ \ \ \ @Mock}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00030}00030\ \ \ \ \ private\ Coche\ cocheMock\ =\ mock(Coche.class);}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00032}00032\ \ \ \ \ @Mock}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00033}00033\ \ \ \ \ private\ Usuario\ usuarioMock\ =\ mock(Usuario.class);}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00035}00035\ \textcolor{comment}{//\ \ \ \ private\ ExampleClient\ exampleClient;}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00037}00037\ \ \ \ \ @BeforeEach}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00038}00038\ \ \ \ \ public\ \textcolor{keywordtype}{void}\ setUp()\ \{}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00039}00039\ \ \ \ \ \ \ \ \ coche\ =\ \textcolor{keyword}{new}\ Coche(Marca.Ford,\ 2020,\ Color.Black,\ 5000,\ 20000,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ the\ mocks}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00042}00042\ \ \ \ \ \ \ \ \ MockitoAnnotations.openMocks(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00045}00045\ \textcolor{comment}{//\ \ \ \ \ \ \ \ MockitoAnnotations.openMocks(this);}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00046}00046\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00047}00047\ \textcolor{comment}{//\ \ \ \ \ \ \ \ //\ prepare\ static\ mock\ of\ ClientBuilder}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00048}00048\ \textcolor{comment}{//\ \ \ \ \ \ \ \ try\ (MockedStatic<ClientBuilder>\ clientBuilder\ =\ Mockito.mockStatic(ClientBuilder.class))\ \{}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00049}00049\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ clientBuilder.when(ClientBuilder::newClient).thenReturn(client);}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00050}00050\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ when(client.target("{}http://localhost:8080/rest/resource"{})).thenReturn(webTarget);}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00051}00051\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00052}00052\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ exampleClient\ =\ new\ ExampleClient("{}localhost"{},\ "{}8080"{});}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00053}00053\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00059}00059\ \ \ \ \ @Test}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00060}00060\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ testConstructorAndGetter()\ \{}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00061}00061\ \ \ \ \ \ \ \ \ when(cocheMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_a09eda62f166b2da7f5c47ead82fe9a54}{getMarca}}()).thenReturn(Marca.Ford);}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00062}00062\ \ \ \ \ \ \ \ \ when(cocheMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_ab5f17d2a04d88fe4b0ed7099176cad99}{getAnyo}}()).thenReturn(2020);}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00063}00063\ \ \ \ \ \ \ \ \ when(cocheMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_ac5070721d60e7439db05134bac1ce4c4}{getColor}}()).thenReturn(Color.Black);}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00064}00064\ \ \ \ \ \ \ \ \ when(cocheMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_ae9079fe7a4947838660741268facc025}{getKilometraje}}()).thenReturn(5000);}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00065}00065\ \ \ \ \ \ \ \ \ when(cocheMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_a13579f0c7af656b01515fda35f6fd67e}{getPrecio}}()).thenReturn(20000);}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00066}00066\ \ \ \ \ \ \ \ \ when(cocheMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_a5205ab91a0d0a8061d3aee0a9968d652}{isNuevo}}()).thenReturn(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Verify\ that\ the\ mock\ object\ behaves\ as\ expected}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00069}00069\ \ \ \ \ \ \ \ \ assertEquals(Marca.Ford,\ cocheMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_a09eda62f166b2da7f5c47ead82fe9a54}{getMarca}}());}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00070}00070\ \ \ \ \ \ \ \ \ assertEquals(2020,\ cocheMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_ab5f17d2a04d88fe4b0ed7099176cad99}{getAnyo}}());}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00071}00071\ \ \ \ \ \ \ \ \ assertEquals(Color.Black,\ cocheMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_ac5070721d60e7439db05134bac1ce4c4}{getColor}}());}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00072}00072\ \ \ \ \ \ \ \ \ assertEquals(5000,\ cocheMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_ae9079fe7a4947838660741268facc025}{getKilometraje}}());}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00073}00073\ \ \ \ \ \ \ \ \ assertEquals(20000,\ cocheMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_a13579f0c7af656b01515fda35f6fd67e}{getPrecio}}());}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00074}00074\ \ \ \ \ \ \ \ \ assertFalse(cocheMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_a5205ab91a0d0a8061d3aee0a9968d652}{isNuevo}}());}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00075}00075\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00080}00080\ \ \ \ \ @Test}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00081}00081\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ testSetter()\ \{}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00082}00082\ \ \ \ \ \ \ \ \ coche.setMarca(Marca.Toyota);}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00083}00083\ \ \ \ \ \ \ \ \ assertEquals(Marca.Toyota,\ coche.getMarca());}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00085}00085\ \ \ \ \ \ \ \ \ coche.setAnyo(2021);}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00086}00086\ \ \ \ \ \ \ \ \ assertEquals(2021,\ coche.getAnyo());}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00088}00088\ \ \ \ \ \ \ \ \ coche.setColor(Color.White);}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00089}00089\ \ \ \ \ \ \ \ \ assertEquals(Color.White,\ coche.getColor());}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00091}00091\ \ \ \ \ \ \ \ \ coche.setKilometraje(6000);}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00092}00092\ \ \ \ \ \ \ \ \ assertEquals(6000,\ coche.getKilometraje());}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00094}00094\ \ \ \ \ \ \ \ \ coche.setPrecio(21000);}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00095}00095\ \ \ \ \ \ \ \ \ assertEquals(21000,\ coche.getPrecio());}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00097}00097\ \ \ \ \ \ \ \ \ coche.setNuevo(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00098}00098\ \ \ \ \ \ \ \ \ assertTrue(coche.isNuevo());}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00100}00100\ \ \ \ \ \ \ \ \ coche.setId(1);}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00101}00101\ \ \ \ \ \ \ \ \ assertEquals(1,\ coche.getId());}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00102}00102\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00107}00107\ \ \ \ \ @Test}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00108}00108\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ testEquals()\ \{}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00109}00109\ \ \ \ \ \ \ \ \ Coche\ sameCoche\ =\ \textcolor{keyword}{new}\ Coche(Marca.Ford,\ 2020,\ Color.Black,\ 5000,\ 20000,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00110}00110\ \ \ \ \ \ \ \ \ Coche\ differentCoche\ =\ \textcolor{keyword}{new}\ Coche(Marca.Toyota,\ 2021,\ Color.White,\ 6000,\ 21000,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00112}00112\ \ \ \ \ \ \ \ \ assertEquals(coche,\ sameCoche);}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00113}00113\ \ \ \ \ \ \ \ \ assertNotEquals(coche,\ differentCoche);}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00114}00114\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00119}00119\ \ \ \ \ @Test}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00120}00120\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ testHashCode()\ \{}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00121}00121\ \ \ \ \ \ \ \ \ Coche\ sameCoche\ =\ \textcolor{keyword}{new}\ Coche(Marca.Ford,\ 2020,\ Color.Black,\ 5000,\ 20000,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00122}00122\ \ \ \ \ \ \ \ \ assertEquals(coche.hashCode(),\ sameCoche.hashCode());}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00123}00123\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00128}00128\ \ \ \ \ @Test}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00129}00129\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ testToString()\ \{}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00130}00130\ \ \ \ \ \ \ \ \ String\ expected\ =\ \textcolor{stringliteral}{"{}Coche\{id=0,\ marca=Ford,\ anyo=2020,\ color=Black,\ kilometraje=5000,\ precio=20000,\ nuevo=false\}"{}};}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00131}00131\ \ \ \ \ \ \ \ \ assertEquals(expected,\ coche.toString());}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00132}00132\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test_coche_8java_source_l00133}00133\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,100 @@
+\doxysection{test\+Concesionario.\+java}
+\hypertarget{test_concesionario_8java_source}{}\label{test_concesionario_8java_source}\index{src/test/java/domain/jdo/testConcesionario.java@{src/test/java/domain/jdo/testConcesionario.java}}
+\mbox{\hyperlink{test_concesionario_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00001}00001\ \textcolor{keyword}{package\ }domain.jdo;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00003}00003\ \textcolor{keyword}{import}\ org.junit.jupiter.api.BeforeEach;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00004}00004\ \textcolor{keyword}{import}\ org.junit.jupiter.api.Test;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00005}00005\ \textcolor{keyword}{import}\ org.mockito.*;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00007}00007\ \textcolor{keyword}{import}\ javax.ws.rs.client.Client;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00008}00008\ \textcolor{keyword}{import}\ javax.ws.rs.client.ClientBuilder;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00009}00009\ \textcolor{keyword}{import}\ javax.ws.rs.client.WebTarget;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00011}00011\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00012}00012\ \textcolor{keyword}{import}\ java.util.Arrays;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00013}00013\ \textcolor{keyword}{import}\ java.util.Date;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00015}00015\ \textcolor{keyword}{import}\ \textcolor{keyword}{static}\ org.junit.jupiter.api.Assertions.*;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00016}00016\ \textcolor{keyword}{import}\ \textcolor{keyword}{static}\ org.mockito.Mockito.mock;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00017}00017\ \textcolor{keyword}{import}\ \textcolor{keyword}{static}\ org.mockito.Mockito.when;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00023}00023\ \textcolor{keyword}{class\ }ConcesionarioTest\ \{}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{private}\ Concesionario\ concesionario;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00028}00028\ \ \ \ \ @Mock}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{private}\ Client\ client;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00031}00031\ \ \ \ \ @Mock(answer=Answers.RETURNS\_DEEP\_STUBS)}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00032}00032\ \ \ \ \ private\ WebTarget\ webTarget;}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00034}00034\ \ \ \ \ @Mock}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00035}00035\ \ \ \ \ private\ Concesionario\ concesionarioMock\ =\ mock(Concesionario.class);}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00037}00037\ \ \ \ \ private\ Coche\ coche\ =\ new\ Coche(Marca.Ford,\ 2020,\ Color.Black,\ 5000,\ 20000,\ false);}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00039}00039\ \ \ \ \ private\ ArrayList<Coche>\ coches\ =\ new\ ArrayList<Coche>(Arrays.asList(coche));}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00041}00041\ \ \ \ \ @BeforeEach}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00042}00042\ \ \ \ \ public\ \textcolor{keywordtype}{void}\ setUp()\ \{}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00043}00043\ \ \ \ \ \ \ \ \ concesionario\ =\ \textcolor{keyword}{new}\ Concesionario(\textcolor{stringliteral}{"{}concesionario"{}},\ \textcolor{stringliteral}{"{}localidad"{}},\ coches);}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ the\ mocks}}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00046}00046\ \ \ \ \ \ \ \ \ MockitoAnnotations.openMocks(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00047}00047\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00052}00052\ \ \ \ \ @Test}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ testConstructorAndGetter()\ \{}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00054}00054\ \ \ \ \ \ \ \ \ when(concesionarioMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a525d88a33037f78e372663e1aed441c3}{getNombre}}()).thenReturn(\textcolor{stringliteral}{"{}concesionario"{}});}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00055}00055\ \ \ \ \ \ \ \ \ when(concesionarioMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a804a7af3a54f0582f809b4bcbe3ccc9a}{getLocalidad}}()).thenReturn(\textcolor{stringliteral}{"{}localidad"{}});}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00056}00056\ \ \ \ \ \ \ \ \ when(concesionarioMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a7700a471ea06efebf6c667624b6b1198}{getCoches}}()).thenReturn(coches);}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ assertEquals(\textcolor{stringliteral}{"{}concesionario"{}},\ concesionarioMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a525d88a33037f78e372663e1aed441c3}{getNombre}}());}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ assertEquals(\textcolor{stringliteral}{"{}localidad"{}},\ concesionarioMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a804a7af3a54f0582f809b4bcbe3ccc9a}{getLocalidad}}());}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00060}00060\ \ \ \ \ \ \ \ \ assertEquals(coches,\ concesionarioMock.\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a7700a471ea06efebf6c667624b6b1198}{getCoches}}());}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00066}00066\ \ \ \ \ @Test}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00067}00067\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ testSetter()\ \{}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00068}00068\ \ \ \ \ \ \ \ \ concesionario.setNombre(\textcolor{stringliteral}{"{}concesionario2"{}});}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00069}00069\ \ \ \ \ \ \ \ \ concesionario.setLocalidad(\textcolor{stringliteral}{"{}localidad2"{}});}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00070}00070\ \ \ \ \ \ \ \ \ assertEquals(\textcolor{stringliteral}{"{}concesionario2"{}},\ concesionario.getNombre());}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00071}00071\ \ \ \ \ \ \ \ \ assertEquals(\textcolor{stringliteral}{"{}localidad2"{}},\ concesionario.getLocalidad());}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00077}00077\ \ \ \ \ @Test}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00078}00078\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ testAgregarCoche()\ \{}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00079}00079\ \ \ \ \ \ \ \ \ Coche\ coche2\ =\ \textcolor{keyword}{new}\ Coche(Marca.Ford,\ 2020,\ Color.Black,\ 5000,\ 20000,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00080}00080\ \ \ \ \ \ \ \ \ concesionario.agregarCoche(coche2);}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00081}00081\ \ \ \ \ \ \ \ \ assertEquals(2,\ concesionario.getCoches().size());}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00082}00082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00087}00087\ \ \ \ \ @Test}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00088}00088\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ testEliminarCoche()\ \{}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00089}00089\ \ \ \ \ \ \ \ \ Coche\ coche2\ =\ \textcolor{keyword}{new}\ Coche(Marca.Ford,\ 2020,\ Color.Black,\ 5000,\ 20000,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00090}00090\ \ \ \ \ \ \ \ \ concesionario.agregarCoche(coche2);}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00091}00091\ \ \ \ \ \ \ \ \ concesionario.eliminarCoche(coche2);}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00092}00092\ \ \ \ \ \ \ \ \ assertEquals(1,\ concesionario.getCoches().size());}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00093}00093\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00098}00098\ \ \ \ \ @Test}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00099}00099\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ testEncontrarCochePorId()\ \{}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00100}00100\ \ \ \ \ \ \ \ \ Coche\ coche2\ =\ \textcolor{keyword}{new}\ Coche(Marca.Ford,\ 2020,\ Color.Black,\ 5000,\ 20000,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00101}00101\ \ \ \ \ \ \ \ \ concesionario.agregarCoche(coche2);}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00102}00102\ \ \ \ \ \ \ \ \ assertEquals(coche2,\ concesionario.encontrarCochePorId(coche2.getId()));}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00103}00103\ \ \ \ \ \ \ \ \ assertNull(concesionario.encontrarCochePorId(2));}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00104}00104\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00109}00109\ \ \ \ \ @Test}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00110}00110\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ testToString()\ \{}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00111}00111\ \ \ \ \ \ \ \ \ Concesionario\ c1\ =\ \textcolor{keyword}{new}\ Concesionario(\textcolor{stringliteral}{"{}concesionario"{}},\ \textcolor{stringliteral}{"{}localidad"{}},\ coches);}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00112}00112\ \ \ \ \ \ \ \ \ assertEquals(c1.toString(),\ concesionario.toString());}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00113}00113\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{test_concesionario_8java_source_l00116}00116\ \}}
+
+\end{DoxyCode}

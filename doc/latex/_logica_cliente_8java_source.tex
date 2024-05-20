@@ -1,0 +1,101 @@
+\doxysection{Logica\+Cliente.\+java}
+\hypertarget{_logica_cliente_8java_source}{}\label{_logica_cliente_8java_source}\index{src/main/java/gui/LogicaCliente.java@{src/main/java/gui/LogicaCliente.java}}
+\mbox{\hyperlink{_logica_cliente_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00001}00001\ \textcolor{keyword}{package\ }gui;}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00003}00003\ \textcolor{keyword}{import}\ javax.ws.rs.client.Client;}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00004}00004\ \textcolor{keyword}{import}\ javax.ws.rs.client.ClientBuilder;}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00005}00005\ \textcolor{keyword}{import}\ javax.ws.rs.client.Entity;}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00006}00006\ \textcolor{keyword}{import}\ javax.ws.rs.client.Invocation;}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00007}00007\ \textcolor{keyword}{import}\ javax.ws.rs.client.WebTarget;}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00008}00008\ \textcolor{keyword}{import}\ javax.ws.rs.core.MediaType;}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00009}00009\ \textcolor{keyword}{import}\ javax.ws.rs.core.Response;}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00010}00010\ \textcolor{keyword}{import}\ javax.ws.rs.core.Response.Status;}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00012}00012\ \textcolor{keyword}{import}\ \mbox{\hyperlink{namespacedomain}{domain}}.\mbox{\hyperlink{namespacedomain_1_1jdo}{jdo}}.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche}{Coche}};}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00014}00014\ \textcolor{keyword}{import}\ java.util.Map;}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00016}00016\ \textcolor{comment}{//\ import\ org.apache.logging.log4j.LogManager;}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00017}00017\ \textcolor{comment}{//\ import\ org.apache.logging.log4j.Logger;}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00020}\mbox{\hyperlink{classgui_1_1_logica_cliente}{00020}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgui_1_1_logica_cliente}{LogicaCliente}}\ \{}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ Client\ client;}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ WebTarget\ webTarget;}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00025}\mbox{\hyperlink{classgui_1_1_logica_cliente_a3fb797d12dd642e8c6cccb2d001a4db2}{00025}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classgui_1_1_logica_cliente_a3fb797d12dd642e8c6cccb2d001a4db2}{LogicaCliente}}(String\ hostname,\ String\ port)\ \{}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00026}00026\ \ \ \ \ \ \ \ \ client\ =\ ClientBuilder.newClient();}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00027}00027\ \ \ \ \ \ \ \ \ webTarget\ =\ client.target(String.format(\textcolor{stringliteral}{"{}http://\%s:\%s/rest/resource"{}},\ hostname,\ port));}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00028}00028\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00030}\mbox{\hyperlink{classgui_1_1_logica_cliente_a1ddefc36c5df5c926621f1a24e9b16dd}{00030}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_logica_cliente_a1ddefc36c5df5c926621f1a24e9b16dd}{agregarCoche}}(\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche}{Coche}}\ coche)\ \{}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ System.out.println(coche);}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ establecemos\ conexion\ con\ el\ servidor\ a\ través\ de\ la\ API}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00034}00034\ \ \ \ \ \ \ \ \ WebTarget\ agregarCocheWebTarget\ =\ webTarget.path(\textcolor{stringliteral}{"{}agregarCoche"{}});}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ enviamos\ una\ petición\ POST\ con\ los\ datos\ del\ coche\ en\ formato\ JSON}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00037}00037\ \ \ \ \ \ \ \ \ Invocation.Builder\ invocationBuilder\ =\ agregarCocheWebTarget.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00038}00038\ \ \ \ \ \ \ \ \ Response\ response\ =\ invocationBuilder.post(Entity.entity(coche,\ MediaType.APPLICATION\_JSON));}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ LOG4J\ AÚN\ SIN\ CONFIGURAR}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ //\ comprobamos\ y\ registramos\ si\ la\ petición\ ha\ sido\ correcta\ o\ no}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ (response.getStatus()\ !=\ Status.OK.getStatusCode())\ \{}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ logger.error("{}Error\ connecting\ with\ the\ server.\ Code:\ \{\}"{},\ response.getStatus());}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \}\ else\ \{}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ logger.info("{}User\ correctly\ registered"{});}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00047}00047\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00049}\mbox{\hyperlink{classgui_1_1_logica_cliente_ac21cb88f373489ab6c66b59131c2d160}{00049}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_logica_cliente_ac21cb88f373489ab6c66b59131c2d160}{eliminarCoche}}(\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche}{Coche}}\ coche)\ \{}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00050}00050\ \ \ \ \ \ \ \ \ System.out.println(coche);}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ establecemos\ conexión\ con\ el\ servidor\ a\ través\ de\ la\ API}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00053}00053\ \ \ \ \ \ \ \ \ WebTarget\ eliminarCocheWebTarget\ =\ webTarget.path(\textcolor{stringliteral}{"{}eliminarCoche/\{id\}"{}});}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ configuramos\ el\ WebTarget\ con\ el\ ID\ del\ coche\ a\ eliminar}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00055}00055\ \ \ \ \ \ \ \ \ WebTarget\ cocheConId\ =\ eliminarCocheWebTarget.resolveTemplate(\textcolor{stringliteral}{"{}id"{}},\ coche.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_a7729090ac95b409a4f8f7e9b4c83b893}{getId}}());}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creamos\ un\ invocation\ builder\ para\ enviar\ una\ petición\ DELETE}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ Invocation.Builder\ invocationBuilder\ =\ cocheConId.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Enviamos\ la\ petición\ DELETE}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00060}00060\ \ \ \ \ \ \ \ \ Response\ response\ =\ invocationBuilder.delete();}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Procesamos\ la\ respuesta}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (response.getStatus()\ ==\ Response.Status.OK.getStatusCode())\ \{}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Respuesta\ recibida:\ "{}}\ +\ response.readEntity(String.class));}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00065}00065\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Error\ al\ eliminar\ el\ coche:\ "{}}\ +\ response.getStatus());}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00067}00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00071}\mbox{\hyperlink{classgui_1_1_logica_cliente_ad1feba17b41ebb79a00291e9e61f53c4}{00071}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_logica_cliente_ad1feba17b41ebb79a00291e9e61f53c4}{modificarCoche}}(\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche}{Coche}}\ coche,\ Map<String,\ Object>\ cambios)\ \{}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00072}00072\ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}ID\ del\ coche\ a\ modificar:\ "{}}\ +\ coche.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_a7729090ac95b409a4f8f7e9b4c83b893}{getId}}()\ +\ \textcolor{stringliteral}{"{},\ Cambios:\ "{}}\ +\ cambios);}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Establecemos\ conexión\ con\ el\ servidor\ a\ través\ de\ la\ API}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00075}00075\ \ \ \ \ \ \ \ \ WebTarget\ modificarCocheWebTarget\ =\ webTarget.path(\textcolor{stringliteral}{"{}modificarCoche/\{id\}"{}});}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuramos\ el\ WebTarget\ con\ el\ ID\ del\ coche\ a\ modificar}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00077}00077\ \ \ \ \ \ \ \ \ WebTarget\ cocheConId\ =\ modificarCocheWebTarget.resolveTemplate(\textcolor{stringliteral}{"{}id"{}},\ coche.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_a7729090ac95b409a4f8f7e9b4c83b893}{getId}}());}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creamos\ un\ invocation\ builder\ para\ enviar\ una\ petición\ PUT}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00080}00080\ \ \ \ \ \ \ \ \ Invocation.Builder\ invocationBuilder\ =\ cocheConId.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuramos\ los\ cambios\ como\ entidad\ de\ la\ solicitud}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00082}00082\ \ \ \ \ \ \ \ \ Entity<Map<String,\ Object>>\ cambiosEntity\ =\ Entity.entity(cambios,\ MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Enviamos\ la\ petición\ PUT\ con\ los\ cambios}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00085}00085\ \ \ \ \ \ \ \ \ Response\ response\ =\ invocationBuilder.put(cambiosEntity);}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Procesamos\ la\ respuesta}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (response.getStatus()\ ==\ Response.Status.OK.getStatusCode())\ \{}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Respuesta\ recibida:\ "{}}\ +\ response.readEntity(String.class));}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00090}00090\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Error\ al\ modificar\ el\ coche:\ "{}}\ +\ response.getStatus());}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00092}00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00093}00093\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_logica_cliente_8java_source_l00095}00095\ \}}
+
+\end{DoxyCode}

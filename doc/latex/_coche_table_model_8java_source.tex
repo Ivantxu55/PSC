@@ -1,0 +1,83 @@
+\doxysection{Coche\+Table\+Model.\+java}
+\hypertarget{_coche_table_model_8java_source}{}\label{_coche_table_model_8java_source}\index{src/main/java/gui/CocheTableModel.java@{src/main/java/gui/CocheTableModel.java}}
+\mbox{\hyperlink{_coche_table_model_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00001}\mbox{\hyperlink{namespacegui}{00001}}\ \textcolor{keyword}{package\ }gui;}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00003}00003\ \textcolor{keyword}{import}\ \mbox{\hyperlink{namespacedomain}{domain}}.\mbox{\hyperlink{namespacedomain_1_1jdo}{jdo}}.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche}{Coche}};}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00005}00005\ \textcolor{keyword}{import}\ javax.swing.table.DefaultTableModel;}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00006}00006\ \textcolor{keyword}{import}\ java.text.SimpleDateFormat;}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00007}00007\ \textcolor{keyword}{import}\ java.util.Arrays;}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00008}00008\ \textcolor{keyword}{import}\ java.util.List;}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00012}\mbox{\hyperlink{classgui_1_1_coche_table_model}{00012}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgui_1_1_coche_table_model}{CocheTableModel}}\ \textcolor{keyword}{extends}\ DefaultTableModel\ \{}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00014}00014\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ List<String>\ headers\ =\ Arrays.asList(\textcolor{stringliteral}{"{}Marca"{}},\ \textcolor{stringliteral}{"{}Año"{}},\ \textcolor{stringliteral}{"{}Color"{}},\ \textcolor{stringliteral}{"{}Kms"{}},\ \textcolor{stringliteral}{"{}Precio"{}},\ \textcolor{stringliteral}{"{}Estado"{}});}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{private}\ List<Coche>\ coches;}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00017}\mbox{\hyperlink{classgui_1_1_coche_table_model_aaba7318ede28e3455738db25af223ed6}{00017}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classgui_1_1_coche_table_model_aaba7318ede28e3455738db25af223ed6}{CocheTableModel}}(List<Coche>\ coches)\ \{}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00018}00018\ \ \ \ \ \ \ \ \ this.coches\ =\ coches;}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00019}00019\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00021}\mbox{\hyperlink{classgui_1_1_coche_table_model_a1fe6fe945b46a8819e36a7cac3b58d1f}{00021}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgui_1_1_coche_table_model_a1fe6fe945b46a8819e36a7cac3b58d1f}{getRowCount}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coches\ ==\ \textcolor{keyword}{null}\ ?\ 0\ :\ coches.size();}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00023}00023\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00025}00025\ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00026}\mbox{\hyperlink{classgui_1_1_coche_table_model_a8269cb6ef0ad854f85532e22c0cb9980}{00026}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgui_1_1_coche_table_model_a8269cb6ef0ad854f85532e22c0cb9980}{getColumnCount}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ headers.size();}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00028}00028\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00030}00030\ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00031}\mbox{\hyperlink{classgui_1_1_coche_table_model_a65b8789a2a5428ecda1868b44970df1b}{00031}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ \mbox{\hyperlink{classgui_1_1_coche_table_model_a65b8789a2a5428ecda1868b44970df1b}{isCellEditable}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ column)\ \{}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00035}00035\ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00036}\mbox{\hyperlink{classgui_1_1_coche_table_model_aac73c5ce6f3fc1a4744b4f4befef1793}{00036}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_coche_table_model_aac73c5ce6f3fc1a4744b4f4befef1793}{setValueAt}}(Object\ aValue,\ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ column)\ \{}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00037}00037\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00039}00039\ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00040}\mbox{\hyperlink{classgui_1_1_coche_table_model_a46332d14465505e4c16561f7b01f6bf5}{00040}}\ \ \ \ \ \textcolor{keyword}{public}\ String\ \mbox{\hyperlink{classgui_1_1_coche_table_model_a46332d14465505e4c16561f7b01f6bf5}{getColumnName}}(\textcolor{keywordtype}{int}\ column)\ \{}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ headers.get(column);}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00042}00042\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00050}\mbox{\hyperlink{classgui_1_1_coche_table_model_a1ba0a1ba464faefa1b96446a2377fbc1}{00050}}\ \ \ \ \ \textcolor{keyword}{public}\ Object\ \mbox{\hyperlink{classgui_1_1_coche_table_model_a1ba0a1ba464faefa1b96446a2377fbc1}{getValueAt}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ column)\ \{}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00051}00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdomain_1_1jdo_1_1_coche}{Coche}}\ coche\ =\ coches.get(row);}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00052}00052\ \ \ \ \ \ \ \ \ SimpleDateFormat\ dateFormat\ =\ \textcolor{keyword}{new}\ SimpleDateFormat(\textcolor{stringliteral}{"{}dd/MM/yyyy"{}});}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (column)\ \{}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coche.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_a09eda62f166b2da7f5c47ead82fe9a54}{getMarca}}().toString();}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coche.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_ab5f17d2a04d88fe4b0ed7099176cad99}{getAnyo}}();}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coche.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_ac5070721d60e7439db05134bac1ce4c4}{getColor}}();}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coche.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_ae9079fe7a4947838660741268facc025}{getKilometraje}}();}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coche.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_a13579f0c7af656b01515fda35f6fd67e}{getPrecio}}();}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(coche.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche_a5205ab91a0d0a8061d3aee0a9968d652}{isNuevo}}())\{}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Nuevo"{}};}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Usado"{}};}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00073}00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00074}00074\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00076}\mbox{\hyperlink{classgui_1_1_coche_table_model_abaa73f6bf760695cabb39baa11f9e114}{00076}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classdomain_1_1jdo_1_1_coche}{Coche}}\ \mbox{\hyperlink{classgui_1_1_coche_table_model_abaa73f6bf760695cabb39baa11f9e114}{getCocheAt}}(\textcolor{keywordtype}{int}\ row)\ \{}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coches.get(row);}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00080}\mbox{\hyperlink{classgui_1_1_coche_table_model_a691c59241a8d5656acfeda1c7be425ba}{00080}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_coche_table_model_a691c59241a8d5656acfeda1c7be425ba}{setCoches}}(List<Coche>\ coches)\ \{}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00081}00081\ \ \ \ \ \ \ \ \ this.coches\ =\ coches;}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00082}00082\ \ \ \ \ \ \ \ \ fireTableDataChanged();}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00083}00083\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00084}00084\ \}}
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_coche_table_model_8java_source_l00086}00086\ }
+
+\end{DoxyCode}

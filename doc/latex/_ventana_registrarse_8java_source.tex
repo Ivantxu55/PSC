@@ -1,0 +1,360 @@
+\doxysection{Ventana\+Registrarse.\+java}
+\hypertarget{_ventana_registrarse_8java_source}{}\label{_ventana_registrarse_8java_source}\index{src/main/java/gui/VentanaRegistrarse.java@{src/main/java/gui/VentanaRegistrarse.java}}
+\mbox{\hyperlink{_ventana_registrarse_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00001}00001\ \textcolor{keyword}{package\ }gui;}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.awt.*;}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00005}00005\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00006}00006\ \textcolor{keyword}{import}\ java.io.FileInputStream;}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00007}00007\ \textcolor{keyword}{import}\ java.io.FileOutputStream;}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00008}00008\ \textcolor{keyword}{import}\ java.io.ObjectInputStream;}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00009}00009\ \textcolor{keyword}{import}\ java.io.ObjectOutputStream;}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00010}00010\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00011}00011\ \textcolor{keyword}{import}\ java.util.Date;}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00012}00012\ \textcolor{keyword}{import}\ java.util.Iterator;}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00014}00014\ \textcolor{keyword}{import}\ javax.swing.JFrame;}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00016}00016\ \textcolor{keyword}{import}\ \mbox{\hyperlink{namespacedomain}{domain}}.\mbox{\hyperlink{namespacedomain_1_1jdo}{jdo}}.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche}{Coche}};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00017}00017\ \textcolor{keyword}{import}\ \mbox{\hyperlink{namespacedomain}{domain}}.\mbox{\hyperlink{namespacedomain_1_1jdo}{jdo}}.\mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario}{Usuario}};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00018}00018\ \textcolor{keyword}{import}\ \mbox{\hyperlink{namespacemetodos_gui}{metodosGui}}.\mbox{\hyperlink{classmetodos_gui_1_1_metodos_g_u_i}{MetodosGUI}};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00020}00020\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00022}\mbox{\hyperlink{classgui_1_1_ventana_registrarse}{00022}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgui_1_1_ventana_registrarse}{VentanaRegistrarse}}\ \textcolor{keyword}{extends}\ JFrame\{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00023}00023\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00024}00024\ \ \ \ \ ArrayList<Usuario>\ listaUsuarios\ =\ \textcolor{keyword}{new}\ ArrayList<Usuario>();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00025}00025\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ \textcolor{keywordtype}{long}\ serialVersionUID\ =\ 1L;}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00031}\mbox{\hyperlink{classgui_1_1_ventana_registrarse_a2e32a7e452f02f291e415002f1c28906}{00031}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classgui_1_1_ventana_registrarse_a2e32a7e452f02f291e415002f1c28906}{VentanaRegistrarse}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00032}00032\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//listaUsuarios.add(new\ Usuario("{}"{},\ null,\ "{}"{},\ "{}"{},\ new\ ArrayList<Coche>()));}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00034}00034\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ de\ la\ ventana.}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00036}00036\ \ \ \ \ \ \ \ \ setTitle(\textcolor{stringliteral}{"{}Ventana\ registrarse"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00037}00037\ \ \ \ \ \ \ \ \ setSize(750,\ 300);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00038}00038\ \ \ \ \ \ \ \ \ setLocation(400,\ 300);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00039}00039\ \ \ \ \ \ \ \ \ setDefaultCloseOperation(JFrame.DISPOSE\_ON\_CLOSE);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ setLayout(\textcolor{keyword}{new}\ BorderLayout());}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00041}00041\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creación\ de\ contenedores\ de\ la\ ventana\ y\ su\ configuración.}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00043}00043\ \ \ \ \ \ \ \ \ JPanel\ pNorte\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00044}00044\ \ \ \ \ \ \ \ \ pNorte.setLayout(\textcolor{keyword}{new}\ GridLayout(1,7));}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00045}00045\ \ \ \ \ \ \ \ \ JPanel\ pCentro\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00046}00046\ \ \ \ \ \ \ \ \ pCentro.setLayout(\textcolor{keyword}{new}\ GridLayout(4,3));}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00047}00047\ \ \ \ \ \ \ \ \ JPanel\ pSur\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00048}00048\ \ \ \ \ \ \ \ \ pSur.setLayout(\textcolor{keyword}{new}\ FlowLayout());}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creación\ de\ componentes\ de\ la\ ventana\ y\ su\ configuración.}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00051}00051\ \ \ \ \ \ \ \ \ JButton\ btnInicio\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Inicio"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00052}00052\ \ \ \ \ \ \ \ \ JPanel\ pNombreTienda\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00053}00053\ \ \ \ \ \ \ \ \ JPanel\ pPanelVacio1\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00054}00054\ \ \ \ \ \ \ \ \ JPanel\ pPanelVacio2\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00055}00055\ \ \ \ \ \ \ \ \ JPanel\ pPanelVacio3\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00056}00056\ \ \ \ \ \ \ \ \ JPanel\ pPanelVacio4\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00057}00057\ \ \ \ \ \ \ \ \ JButton\ btnLogin\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Login"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ JLabel\ lUsuario\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}Usuario:"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00060}00060\ \ \ \ \ \ \ \ \ JTextField\ txtUsuario\ =\ \textcolor{keyword}{new}\ JTextField();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00061}00061\ \ \ \ \ \ \ \ \ JLabel\ lErrorUsuario\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}El\ nombre\ está\ escogido\ o\ está\ vacío"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00062}00062\ \ \ \ \ \ \ \ \ lErrorUsuario.setForeground(\mbox{\hyperlink{enumdomain_1_1jdo_1_1_color}{Color}}.RED);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00063}00063\ \ \ \ \ \ \ \ \ lErrorUsuario.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00064}00064\ \ \ \ \ \ \ \ \ JLabel\ lEmail\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}Email:"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00065}00065\ \ \ \ \ \ \ \ \ JTextField\ txtEmail\ =\ \textcolor{keyword}{new}\ JTextField();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00066}00066\ \ \ \ \ \ \ \ \ JLabel\ lErrorEmail\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}El\ email\ está\ en\ uso\ o\ está\ vacío"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00067}00067\ \ \ \ \ \ \ \ \ lErrorEmail.setForeground(\mbox{\hyperlink{enumdomain_1_1jdo_1_1_color}{Color}}.RED);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00068}00068\ \ \ \ \ \ \ \ \ lErrorEmail.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00069}00069\ \ \ \ \ \ \ \ \ JLabel\ lContrasenya\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}Contraseña:"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00070}00070\ \ \ \ \ \ \ \ \ JPasswordField\ txtContrasenya\ =\ \textcolor{keyword}{new}\ JPasswordField();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00071}00071\ \ \ \ \ \ \ \ \ JLabel\ lErrorContrasenya\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}La\ contraseña\ no\ coincide\ o\ está\ vacía"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00072}00072\ \ \ \ \ \ \ \ \ lErrorContrasenya.setForeground(\mbox{\hyperlink{enumdomain_1_1jdo_1_1_color}{Color}}.RED);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00073}00073\ \ \ \ \ \ \ \ \ lErrorContrasenya.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00074}00074\ \ \ \ \ \ \ \ \ JLabel\ lRepetirContrasenya\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}Repetir\ contraseña:"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00075}00075\ \ \ \ \ \ \ \ \ JPasswordField\ txtRepetirContrasenya\ =\ \textcolor{keyword}{new}\ JPasswordField();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00076}00076\ \ \ \ \ \ \ \ \ JLabel\ lErrorContrasenya2\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}La\ contraseña\ no\ coincide\ o\ está\ vacía"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00077}00077\ \ \ \ \ \ \ \ \ lErrorContrasenya2.setForeground(\mbox{\hyperlink{enumdomain_1_1jdo_1_1_color}{Color}}.RED);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00078}00078\ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00079}00079\ \ \ \ \ \ \ \ \ JButton\ btnAceptar\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Aceptar"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00080}00080\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//TODO}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ de\ los\ eventos.}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00083}00083\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00084}00084\ \ \ \ \ \ \ \ \ btnInicio.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmetodos_gui_1_1_metodos_g_u_i}{MetodosGUI}}\ m\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classmetodos_gui_1_1_metodos_g_u_i}{MetodosGUI}}();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m.abrirVentanaInicio();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dispose();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00094}00094\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00095}00095\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00096}00096\ \ \ \ \ \ \ \ \ btnLogin.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_ventana_login}{VentanaLogin}}\ vl\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classgui_1_1_ventana_login}{VentanaLogin}}();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dispose();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00105}00105\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00106}00106\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00107}00107\ \ \ \ \ \ \ \ \ btnAceptar.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ lee\ Usuarios.txt\ y\ cada\ usuario\ se\ mete\ en\ listaUsuarios.}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_ventana_registrarse_ac4ad7738a8aadb09079f9be52d4b446a}{leerBinarioUsuarios}}();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ comprueba\ que\ las\ contraseñas\ coincidan.}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !txtContrasenya.getText().equals(txtRepetirContrasenya.getText())\ )\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ recorre\ listaUsuarios\ y\ se\ comprueba\ que\ el\ campo\ no\ este\ vacío,\ ni\ sea\ espacio,\ ni\ null\ y\ que\ además\ sea\ correcto,\ es\ decir,\ }}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ que\ no\ se\ duplique\ el\ nombre\ y\ el\ mail.}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario}{Usuario}}\ u\ :\ listaUsuarios)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ txtUsuario.getText().equals(\textcolor{stringliteral}{"{}"{}})\ ||\ txtUsuario.getText().equals(\textcolor{stringliteral}{"{}\ "{}})\ ||\ txtUsuario.getText().equals(\textcolor{keyword}{null})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ txtUsuario.getText().equals(u.getNombre())\ )\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorUsuario.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txtEmail.getText().equals(\textcolor{stringliteral}{"{}"{}})\ ||\ txtEmail.getText().equals(\textcolor{stringliteral}{"{}\ "{}})\ ||\ txtEmail.getText().equals(\textcolor{keyword}{null})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ txtEmail.getText().equals(u.getCorreo())\ )\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorEmail.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txtContrasenya.getText().equals(\textcolor{stringliteral}{"{}"{}})\ ||\ txtContrasenya.getText().equals(\textcolor{stringliteral}{"{}\ "{}})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ txtContrasenya.getText().equals(\textcolor{keyword}{null})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !txtContrasenya.getText().equals(txtRepetirContrasenya.getText())\ )\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}"{}})\ ||\ txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}\ "{}})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ txtRepetirContrasenya.getText().equals(\textcolor{keyword}{null})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !txtContrasenya.getText().equals(txtRepetirContrasenya.getText()))\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}"{}})\ ||\ txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}\ "{}})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ txtRepetirContrasenya.getText().equals(\textcolor{keyword}{null})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !txtContrasenya.getText().equals(txtRepetirContrasenya.getText()))\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorEmail.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txtContrasenya.getText().equals(\textcolor{stringliteral}{"{}"{}})\ ||\ txtContrasenya.getText().equals(\textcolor{stringliteral}{"{}\ "{}})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ txtContrasenya.getText().equals(\textcolor{keyword}{null})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !txtContrasenya.getText().equals(txtRepetirContrasenya.getText())\ )\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}"{}})\ ||\ txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}\ "{}})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ txtRepetirContrasenya.getText().equals(\textcolor{keyword}{null})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !txtContrasenya.getText().equals(txtRepetirContrasenya.getText()))\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}"{}})\ ||\ txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}\ "{}})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ txtRepetirContrasenya.getText().equals(\textcolor{keyword}{null})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !txtContrasenya.getText().equals(txtRepetirContrasenya.getText()))\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorUsuario.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txtEmail.getText().equals(\textcolor{stringliteral}{"{}"{}})\ ||\ txtEmail.getText().equals(\textcolor{stringliteral}{"{}\ "{}})\ ||\ txtEmail.getText().equals(\textcolor{keyword}{null})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ txtEmail.getText().equals(u.getCorreo())\ )\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorEmail.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txtContrasenya.getText().equals(\textcolor{stringliteral}{"{}"{}})\ ||\ txtContrasenya.getText().equals(\textcolor{stringliteral}{"{}\ "{}})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ txtContrasenya.getText().equals(\textcolor{keyword}{null})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !txtContrasenya.getText().equals(txtRepetirContrasenya.getText())\ )\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}"{}})\ ||\ txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}\ "{}})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ txtRepetirContrasenya.getText().equals(\textcolor{keyword}{null})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !txtContrasenya.getText().equals(txtRepetirContrasenya.getText()))\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}"{}})\ ||\ txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}\ "{}})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ txtRepetirContrasenya.getText().equals(\textcolor{keyword}{null})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !txtContrasenya.getText().equals(txtRepetirContrasenya.getText()))\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorEmail.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txtContrasenya.getText().equals(\textcolor{stringliteral}{"{}"{}})\ ||\ txtContrasenya.getText().equals(\textcolor{stringliteral}{"{}\ "{}})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ txtContrasenya.getText().equals(\textcolor{keyword}{null})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !txtContrasenya.getText().equals(txtRepetirContrasenya.getText())\ )\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}"{}})\ ||\ txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}\ "{}})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ txtRepetirContrasenya.getText().equals(\textcolor{keyword}{null})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !txtContrasenya.getText().equals(txtRepetirContrasenya.getText()))\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}"{}})\ ||\ txtRepetirContrasenya.getText().equals(\textcolor{stringliteral}{"{}\ "{}})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ txtRepetirContrasenya.getText().equals(\textcolor{keyword}{null})\ ||\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !txtContrasenya.getText().equals(txtRepetirContrasenya.getText()))\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ no\ ha\ habido\ errores\ se\ agrga\ el\ nuevo\ usuario.}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lErrorUsuario.isVisible()\ ==\ \textcolor{keyword}{false}\ \&\&\ lErrorEmail.isVisible()\ ==\ \textcolor{keyword}{false}\ \&\&\ lErrorContrasenya.isVisible()\ ==\ \textcolor{keyword}{false}\ \&\&\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lErrorContrasenya2.isVisible()\ ==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario}{Usuario}}\ nuevoUsuario\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario}{Usuario}}(txtUsuario.getText(),\ \textcolor{keyword}{new}\ Date(),\ txtEmail.getText(),\ txtContrasenya.getText(),\ \textcolor{keyword}{new}\ ArrayList<Coche>());}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_ventana_registrarse_ac9d5dcf92f545b850c53e4facd456174}{anyadirBinarioUsuarios}}(nuevoUsuario);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dispose();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_ventana_principal}{VentanaPrincipal}}\ vp\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classgui_1_1_ventana_principal}{VentanaPrincipal}}(nuevoUsuario);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ JOptionPane.showMessageDialog(\textcolor{keyword}{null},\ \textcolor{stringliteral}{"{}Registro\ realizado\ con\ éxito"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00288}00288\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00289}00289\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00290}00290\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Asignación\ de\ los\ componentes\ a\ los\ contenedores.}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00291}00291\ \ \ \ \ \ \ \ \ pNorte.add(btnInicio);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00292}00292\ \ \ \ \ \ \ \ \ pNorte.add(pNombreTienda);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00293}00293\ \ \ \ \ \ \ \ \ pNorte.add(pPanelVacio1);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00294}00294\ \ \ \ \ \ \ \ \ pNorte.add(pPanelVacio2);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00295}00295\ \ \ \ \ \ \ \ \ pNorte.add(pPanelVacio3);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00296}00296\ \ \ \ \ \ \ \ \ pNorte.add(pPanelVacio4);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00297}00297\ \ \ \ \ \ \ \ \ pNorte.add(btnLogin);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00299}00299\ \ \ \ \ \ \ \ \ pCentro.add(lUsuario);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00300}00300\ \ \ \ \ \ \ \ \ pCentro.add(txtUsuario);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00301}00301\ \ \ \ \ \ \ \ \ pCentro.add(lErrorUsuario);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00302}00302\ \ \ \ \ \ \ \ \ pCentro.add(lEmail);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00303}00303\ \ \ \ \ \ \ \ \ pCentro.add(txtEmail);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00304}00304\ \ \ \ \ \ \ \ \ pCentro.add(lErrorEmail);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00305}00305\ \ \ \ \ \ \ \ \ pCentro.add(lContrasenya);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00306}00306\ \ \ \ \ \ \ \ \ pCentro.add(txtContrasenya);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00307}00307\ \ \ \ \ \ \ \ \ pCentro.add(lErrorContrasenya);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00308}00308\ \ \ \ \ \ \ \ \ pCentro.add(lRepetirContrasenya);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00309}00309\ \ \ \ \ \ \ \ \ pCentro.add(txtRepetirContrasenya);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00310}00310\ \ \ \ \ \ \ \ \ pCentro.add(lErrorContrasenya2);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00311}00311\ \ \ \ \ \ \ \ \ pSur.add(btnAceptar);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00312}00312\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00313}00313\ \ \ \ \ \ \ \ \ add(pNorte,\ BorderLayout.NORTH);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00314}00314\ \ \ \ \ \ \ \ \ add(pCentro,\ BorderLayout.CENTER);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00315}00315\ \ \ \ \ \ \ \ \ add(pSur,\ BorderLayout.SOUTH);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00316}00316\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00317}00317\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ de\ la\ ventana.}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00318}00318\ \ \ \ \ \ \ \ \ setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00319}00319\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00320}00320\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00321}00321\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00322}\mbox{\hyperlink{classgui_1_1_ventana_registrarse_ac4ad7738a8aadb09079f9be52d4b446a}{00322}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_ventana_registrarse_ac4ad7738a8aadb09079f9be52d4b446a}{leerBinarioUsuarios}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00323}00323\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ (FileInputStream\ fis\ =\ \textcolor{keyword}{new}\ FileInputStream(\textcolor{stringliteral}{"{}src\(\backslash\)\(\backslash\)main\(\backslash\)\(\backslash\)resources\(\backslash\)\(\backslash\)usuarios.bin"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ObjectInputStream\ ois\ =\ \textcolor{keyword}{new}\ ObjectInputStream(fis))\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (fis.available()\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario}{Usuario}}\ usuario\ =\ (\mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario}{Usuario}})\ ois.readObject();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Usuario\ leído:\ "{}}\ +\ usuario);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaUsuarios.add(usuario);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00331}00331\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00335}00335\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00336}00336\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00337}\mbox{\hyperlink{classgui_1_1_ventana_registrarse_ac9d5dcf92f545b850c53e4facd456174}{00337}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_ventana_registrarse_ac9d5dcf92f545b850c53e4facd456174}{anyadirBinarioUsuarios}}(\mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario}{Usuario}}\ nuevoUsuario)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00338}00338\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ (FileOutputStream\ fos\ =\ \textcolor{keyword}{new}\ FileOutputStream(\textcolor{stringliteral}{"{}src\(\backslash\)\(\backslash\)main\(\backslash\)\(\backslash\)resources\(\backslash\)\(\backslash\)usuarios.bin"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00339}00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ObjectOutputStream\ oos\ =\ \textcolor{keyword}{new}\ ObjectOutputStream(fos))\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00341}00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ listaUsuarios.size();\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ oos.writeObject(listaUsuarios.get(i));}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00343}00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00344}00344\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ oos.writeObject(nuevoUsuario);}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00350}00350\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00351}00351\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00352}\mbox{\hyperlink{classgui_1_1_ventana_registrarse_ae2d342fb597443761ec5120131864e50}{00352}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_ventana_registrarse_ae2d342fb597443761ec5120131864e50}{main}}(String[]\ args)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00353}00353\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_ventana_registrarse}{VentanaRegistrarse}}\ vp\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classgui_1_1_ventana_registrarse_a2e32a7e452f02f291e415002f1c28906}{VentanaRegistrarse}}();}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00355}00355\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00356}00356\ }
+\DoxyCodeLine{\Hypertarget{_ventana_registrarse_8java_source_l00357}00357\ \}}
+
+\end{DoxyCode}

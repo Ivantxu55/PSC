@@ -1,0 +1,113 @@
+\doxysection{Ventana\+Pago.\+java}
+\hypertarget{_ventana_pago_8java_source}{}\label{_ventana_pago_8java_source}\index{src/main/java/gui/VentanaPago.java@{src/main/java/gui/VentanaPago.java}}
+\mbox{\hyperlink{_ventana_pago_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00001}00001\ \textcolor{keyword}{package\ }gui;}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.awt.*;}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00005}00005\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00007}00007\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00009}00009\ \textcolor{keyword}{import}\ \mbox{\hyperlink{namespacedomain}{domain}}.\mbox{\hyperlink{namespacedomain_1_1jdo}{jdo}}.\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche}{Coche}};}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00010}00010\ \textcolor{keyword}{import}\ \mbox{\hyperlink{namespacedomain}{domain}}.\mbox{\hyperlink{namespacedomain_1_1jdo}{jdo}}.\mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario}{Usuario}};}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00012}\mbox{\hyperlink{classgui_1_1_ventana_pago}{00012}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgui_1_1_ventana_pago}{VentanaPago}}\ \textcolor{keyword}{extends}\ JFrame\{}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00013}00013\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00017}00017\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ \textcolor{keywordtype}{long}\ serialVersionUID\ =\ 1L;}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00019}\mbox{\hyperlink{classgui_1_1_ventana_pago_af0bfe4d2942a371426b8d866d1e48d65}{00019}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classgui_1_1_ventana_pago_af0bfe4d2942a371426b8d866d1e48d65}{VentanaPago}}(\mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario}{Usuario}}\ usuarioLogeado,\ \mbox{\hyperlink{classdomain_1_1jdo_1_1_coche}{Coche}}\ cocheComprar)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00020}00020\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ de\ la\ ventana.}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00022}00022\ \ \ \ \ \ \ \ \ setTitle(\textcolor{stringliteral}{"{}Menú\ principal"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00023}00023\ \ \ \ \ \ \ \ \ setSize(700,\ 200);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00024}00024\ \ \ \ \ \ \ \ \ setLocation(425,\ 300);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00025}00025\ \ \ \ \ \ \ \ \ setDefaultCloseOperation(JFrame.DISPOSE\_ON\_CLOSE);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00026}00026\ \ \ \ \ \ \ \ \ setLayout(\textcolor{keyword}{new}\ BorderLayout());}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creación\ de\ contenedores\ de\ la\ ventana\ y\ su\ configuración.}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00029}00029\ \ \ \ \ \ \ \ \ JPanel\ pNorte\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00030}00030\ \ \ \ \ \ \ \ \ pNorte.setLayout(\textcolor{keyword}{new}\ GridLayout(1,7));}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00031}00031\ \ \ \ \ \ \ \ \ JPanel\ pCentro\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00032}00032\ \ \ \ \ \ \ \ \ pCentro.setLayout(\textcolor{keyword}{new}\ GridLayout(1,2));}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00033}00033\ \ \ \ \ \ \ \ \ JPanel\ pOeste\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00034}00034\ \ \ \ \ \ \ \ \ pOeste.setLayout(\textcolor{keyword}{new}\ GridLayout(20,1));}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00035}00035\ \ \ \ \ \ \ \ \ JPanel\ pSur\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00036}00036\ \ \ \ \ \ \ \ \ pSur.setLayout(\textcolor{keyword}{new}\ FlowLayout());}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creación\ de\ componentes\ de\ la\ ventana\ y\ su\ configuración.}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00039}00039\ \ \ \ \ \ \ \ \ JButton\ btnInicio\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Inicio"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ JPanel\ pNombreTienda\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00041}00041\ \ \ \ \ \ \ \ \ JPanel\ pPanelVacio1\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00042}00042\ \ \ \ \ \ \ \ \ JPanel\ pPanelVacio2\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00043}00043\ \ \ \ \ \ \ \ \ JPanel\ pPanelVacio3\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00044}00044\ \ \ \ \ \ \ \ \ JButton\ btnCerrarSesion\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Cerrar\ sesion"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00045}00045\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00046}00046\ \ \ \ \ \ \ \ \ JLabel\ txtDatosCoche\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}¿El\ coche\ que\ quiere\ comprar\ es:\ ?"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00047}00047\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00048}00048\ \ \ \ \ \ \ \ \ JButton\ btnConfirmar\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Confirmar"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00049}00049\ \ \ \ \ \ \ \ \ JButton\ btnCancelar\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Cancelar"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00050}00050\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ de\ los\ eventos.}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00052}00052\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00053}00053\ \ \ \ \ \ \ \ \ btnConfirmar.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ Auto-\/generated\ method\ stub}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Eliminar\ el\ coche\ de\ la\ base\ de\ datos}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Eliminando\ coche..."{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_logica_cliente}{LogicaCliente}}\ logicaCliente\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classgui_1_1_logica_cliente}{LogicaCliente}}(\textcolor{stringliteral}{"{}localhost"{}},\ \textcolor{stringliteral}{"{}8080"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ logicaCliente.eliminarCoche(cocheComprar);\ \textcolor{comment}{//\ eliminarCoche\ acepta\ un\ objeto\ Coche}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 3.\ Actualizar\ la\ tabla}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ...\ (pendiente\ de\ implementar)}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ JOptionPane.showMessageDialog(\textcolor{keyword}{null},\ \textcolor{stringliteral}{"{}Coche\ eliminado"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ ex)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ JOptionPane.showMessageDialog(\textcolor{keyword}{null},\ \textcolor{stringliteral}{"{}No\ se\ ha\ eliminado\ el\ coche:\ "{}}\ +\ ex.getMessage());}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00076}00076\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00077}00077\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00078}00078\ \ \ \ \ \ \ \ \ btnCancelar.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ Auto-\/generated\ method\ stub}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00085}00085\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00086}00086\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Asignación\ de\ los\ componentes\ a\ los\ contenedores.}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00088}00088\ \ \ \ \ \ \ \ \ pNorte.add(btnInicio);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00089}00089\ \ \ \ \ \ \ \ \ pNorte.add(pNombreTienda);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00090}00090\ \ \ \ \ \ \ \ \ pNorte.add(pPanelVacio1);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00091}00091\ \ \ \ \ \ \ \ \ pNorte.add(pPanelVacio2);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00092}00092\ \ \ \ \ \ \ \ \ pNorte.add(pPanelVacio3);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00093}00093\ \ \ \ \ \ \ \ \ pNorte.add(btnCerrarSesion);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00094}00094\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00095}00095\ \ \ \ \ \ \ \ \ pCentro.add(txtDatosCoche);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00096}00096\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00097}00097\ \ \ \ \ \ \ \ \ pSur.add(btnConfirmar);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00098}00098\ \ \ \ \ \ \ \ \ pSur.add(btnCancelar);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00099}00099\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00100}00100\ \ \ \ \ \ \ \ \ add(pNorte,\ BorderLayout.NORTH);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00101}00101\ \ \ \ \ \ \ \ \ add(pCentro,\ BorderLayout.CENTER);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00102}00102\ \ \ \ \ \ \ \ \ add(pOeste,\ BorderLayout.WEST);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00103}00103\ \ \ \ \ \ \ \ \ add(pSur,\ BorderLayout.SOUTH);}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ de\ la\ ventana.}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00106}00106\ \ \ \ \ \ \ \ \ setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00107}00107\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00108}00108\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{_ventana_pago_8java_source_l00110}00110\ \}}
+
+\end{DoxyCode}

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['silver_0',['Silver',['../enumdomain_1_1jdo_1_1_color.html#a83c99391e14710374d4a9ef3192910dc',1,'domain::jdo::Color']]],
-  ['software_20y_20calidad_1',['Proyecto para la asignatura Proceso de Software y Calidad',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['subaru_2',['Subaru',['../enumdomain_1_1jdo_1_1_marca.html#a344313956891f52f07958fbd65dc520f',1,'domain::jdo::Marca']]]
+  ['white_0',['White',['../enumdomain_1_1jdo_1_1_color.html#a3002ae55f3802cb2a9326cb915f667a1',1,'domain::jdo::Color']]]
 ];

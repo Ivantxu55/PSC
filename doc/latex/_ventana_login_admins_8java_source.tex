@@ -1,0 +1,112 @@
+\doxysection{Ventana\+Login\+Admins.\+java}
+\hypertarget{_ventana_login_admins_8java_source}{}\label{_ventana_login_admins_8java_source}\index{src/main/java/gui/VentanaLoginAdmins.java@{src/main/java/gui/VentanaLoginAdmins.java}}
+\mbox{\hyperlink{_ventana_login_admins_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00001}00001\ \textcolor{keyword}{package\ }gui;}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.awt.*;}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00005}00005\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00007}00007\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00013}\mbox{\hyperlink{classgui_1_1_ventana_login_admins}{00013}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgui_1_1_ventana_login_admins}{VentanaLoginAdmins}}\ \textcolor{keyword}{extends}\ JFrame\{}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ \textcolor{keywordtype}{long}\ serialVersionUID\ =\ 1L;}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00017}\mbox{\hyperlink{classgui_1_1_ventana_login_admins_a574a64fb71a1804b7f4c78e1a66d0abc}{00017}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classgui_1_1_ventana_login_admins_a574a64fb71a1804b7f4c78e1a66d0abc}{VentanaLoginAdmins}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00019}00019\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ de\ la\ ventana.}}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00021}00021\ \ \ \ \ \ \ \ \ setTitle(\textcolor{stringliteral}{"{}Ventana\ login\ Admins"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00022}00022\ \ \ \ \ \ \ \ \ setSize(750,\ 300);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00023}00023\ \ \ \ \ \ \ \ \ setLocation(450,\ 250);;}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00024}00024\ \ \ \ \ \ \ \ \ setDefaultCloseOperation(JFrame.DISPOSE\_ON\_CLOSE);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00025}00025\ \ \ \ \ \ \ \ \ setLayout(\textcolor{keyword}{new}\ BorderLayout());}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00026}00026\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creación\ de\ contenedores\ de\ la\ ventana\ y\ su\ configuración.}}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00028}00028\ \ \ \ \ \ \ \ \ JPanel\ pNorte\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00029}00029\ \ \ \ \ \ \ \ \ pNorte.setLayout(\textcolor{keyword}{new}\ GridLayout(1,7));}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00030}00030\ \ \ \ \ \ \ \ \ JPanel\ pCentro\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00031}00031\ \ \ \ \ \ \ \ \ pCentro.setLayout(\textcolor{keyword}{new}\ GridLayout(2,3));}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00032}00032\ \ \ \ \ \ \ \ \ JPanel\ pSur\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00033}00033\ \ \ \ \ \ \ \ \ pSur.setLayout(\textcolor{keyword}{new}\ FlowLayout());}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00034}00034\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creación\ de\ componentes\ de\ la\ ventana\ y\ su\ configuración.}}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00036}00036\ \ \ \ \ \ \ \ \ JButton\ btnInicio\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Inicio"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00037}00037\ \ \ \ \ \ \ \ \ JPanel\ pNombreTienda\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00038}00038\ \ \ \ \ \ \ \ \ JPanel\ pPanelVacio1\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00039}00039\ \ \ \ \ \ \ \ \ JPanel\ pPanelVacio2\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ JPanel\ pPanelVacio3\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00041}00041\ \ \ \ \ \ \ \ \ JPanel\ pPanelVacio4\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00042}00042\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00043}00043\ \ \ \ \ \ \ \ \ JLabel\ lUsuario\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}Usuario:"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00044}00044\ \ \ \ \ \ \ \ \ JTextField\ txtUsuario\ =\ \textcolor{keyword}{new}\ JTextField();}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00045}00045\ \ \ \ \ \ \ \ \ JLabel\ lErrorUsuario\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}No\ existe\ el\ usuario"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00046}00046\ \ \ \ \ \ \ \ \ lErrorUsuario.setForeground(\mbox{\hyperlink{enumdomain_1_1jdo_1_1_color}{Color}}.RED);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00047}00047\ \ \ \ \ \ \ \ \ lErrorUsuario.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00048}00048\ \ \ \ \ \ \ \ \ JLabel\ lContrasenya\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}Contraseña:"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00049}00049\ \ \ \ \ \ \ \ \ JPasswordField\ txtContrasenya\ =\ \textcolor{keyword}{new}\ JPasswordField();}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00050}00050\ \ \ \ \ \ \ \ \ JLabel\ lErrorContrasenya\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}Contraseña\ incorrecta"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00051}00051\ \ \ \ \ \ \ \ \ lErrorContrasenya.setForeground(\mbox{\hyperlink{enumdomain_1_1jdo_1_1_color}{Color}}.RED);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00052}00052\ \ \ \ \ \ \ \ \ lErrorContrasenya.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00053}00053\ \ \ \ \ \ \ \ \ JButton\ btnAceptar\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Aceptar"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00054}00054\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//TODO}}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ de\ los\ eventos.}}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00057}00057\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ btnInicio.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_main}{Main}}\ m\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classgui_1_1_main}{Main}}();}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dispose();}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00067}00067\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00068}00068\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00069}00069\ \ \ \ \ \ \ \ \ btnAceptar.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//TODO}}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_ventana_principal_admins}{VentanaPrincipalAdmins}}\ vpa\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classgui_1_1_ventana_principal_admins}{VentanaPrincipalAdmins}}();}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dispose();}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00079}00079\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00080}00080\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00081}00081\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Asignación\ de\ los\ componentes\ a\ los\ contenedores.}}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00083}00083\ \ \ \ \ \ \ \ \ pNorte.add(btnInicio);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00084}00084\ \ \ \ \ \ \ \ \ pNorte.add(pNombreTienda);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00085}00085\ \ \ \ \ \ \ \ \ pNorte.add(pPanelVacio1);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00086}00086\ \ \ \ \ \ \ \ \ pNorte.add(pPanelVacio2);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00087}00087\ \ \ \ \ \ \ \ \ pNorte.add(pPanelVacio3);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00088}00088\ \ \ \ \ \ \ \ \ pNorte.add(pPanelVacio4);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00089}00089\ \ \ \ \ \ \ \ \ pCentro.add(lUsuario);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00090}00090\ \ \ \ \ \ \ \ \ pCentro.add(txtUsuario);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00091}00091\ \ \ \ \ \ \ \ \ pCentro.add(lErrorUsuario);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00092}00092\ \ \ \ \ \ \ \ \ pCentro.add(lContrasenya);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00093}00093\ \ \ \ \ \ \ \ \ pCentro.add(txtContrasenya);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00094}00094\ \ \ \ \ \ \ \ \ pCentro.add(lErrorContrasenya);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00095}00095\ \ \ \ \ \ \ \ \ pSur.add(btnAceptar);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00096}00096\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00097}00097\ \ \ \ \ \ \ \ \ add(pNorte,\ BorderLayout.NORTH);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00098}00098\ \ \ \ \ \ \ \ \ add(pCentro,\ BorderLayout.CENTER);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00099}00099\ \ \ \ \ \ \ \ \ add(pSur,\ BorderLayout.SOUTH);}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00100}00100\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ de\ la\ ventana.}}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00102}00102\ \ \ \ \ \ \ \ \ setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00103}00103\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00104}00104\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00105}00105\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00106}\mbox{\hyperlink{classgui_1_1_ventana_login_admins_ae8f2ea5fed600dde0c20985ea0d82d2c}{00106}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_ventana_login_admins_ae8f2ea5fed600dde0c20985ea0d82d2c}{main}}(String[]\ args)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00107}00107\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_ventana_login_admins}{VentanaLoginAdmins}}\ vla\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classgui_1_1_ventana_login_admins_a574a64fb71a1804b7f4c78e1a66d0abc}{VentanaLoginAdmins}}();}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00109}00109\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_ventana_login_admins_8java_source_l00111}00111\ \}}
+
+\end{DoxyCode}

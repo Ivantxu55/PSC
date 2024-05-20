@@ -24,16 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "PSC", "index.html", [
-    [ "Proyecto para la asignatura Proceso de Software y Calidad", "md__r_e_a_d_m_e.html", [
-      [ "Grupo 2, curso 2023-24", "md__r_e_a_d_m_e.html#autotoc_md1", [
-        [ "Universidad de Deusto", "md__r_e_a_d_m_e.html#autotoc_md2", null ]
-      ] ],
-      [ "Introducción", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
-      [ "Cómo construir y ejecutar el programa", "md__r_e_a_d_m_e.html#autotoc_md4", null ],
-      [ "Estructura y dependencias", "md__r_e_a_d_m_e.html#autotoc_md5", null ],
-      [ "Contacto de los miembros del equipo", "md__r_e_a_d_m_e.html#autotoc_md6", null ]
-    ] ],
+  [ "Maven Autos", "index.html", [
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

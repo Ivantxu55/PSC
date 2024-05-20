@@ -130,4 +130,5 @@ class CocheTests {
         String expected = "Coche{id=0, marca=Ford, anyo=2020, color=Black, kilometraje=5000, precio=20000, nuevo=false}";
         assertEquals(expected, coche.toString());
     }
+
 }

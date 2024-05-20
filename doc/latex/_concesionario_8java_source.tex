@@ -1,0 +1,119 @@
+\doxysection{Concesionario.\+java}
+\hypertarget{_concesionario_8java_source}{}\label{_concesionario_8java_source}\index{src/main/java/domain/jdo/Concesionario.java@{src/main/java/domain/jdo/Concesionario.java}}
+\mbox{\hyperlink{_concesionario_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00001}00001\ \textcolor{keyword}{package\ }domain.jdo;}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.util.Scanner;}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00008}\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario}{00008}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario}{Concesionario}}\ \{}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00011}00011\ \ \ \ \ \textcolor{keyword}{private}\ String\ nombre;}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{private}\ String\ localidad;}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{private}\ ArrayList<Coche>\ coches;}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00022}00022\ \ \ \ \ \textcolor{comment}{//\ declaramos\ el\ constructor\ (sobrecargar\ método)}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00023}\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a8d00139ba31f94f9551e26f843ad9576}{00023}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a8d00139ba31f94f9551e26f843ad9576}{Concesionario}}(String\ nombre,\ String\ localidad,\ ArrayList<Coche>\ coches)\{}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00024}00024\ \ \ \ \ \ \ \ \ this.nombre\ =\ nombre;}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00025}00025\ \ \ \ \ \ \ \ \ this.localidad\ =\ localidad;}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00026}00026\ \ \ \ \ \ \ \ \ this.coches\ =\ coches;}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00027}00027\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//\ métodos\ "{}getter"{}\ y\ "{}setter"{}:}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ nombre}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00031}\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a525d88a33037f78e372663e1aed441c3}{00031}}\ \ \ \ \ \textcolor{keyword}{public}\ String\ \mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a525d88a33037f78e372663e1aed441c3}{getNombre}}()\{}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nombre;}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00034}\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a95ce37b9b537bf9a9814fe2d83b84949}{00034}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a95ce37b9b537bf9a9814fe2d83b84949}{setNombre}}(String\ nombre)\{}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00035}00035\ \ \ \ \ \ \ \ \ this.nombre\ =\ nombre;}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ localidad}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00039}\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a804a7af3a54f0582f809b4bcbe3ccc9a}{00039}}\ \ \ \ \ \textcolor{keyword}{public}\ String\ \mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a804a7af3a54f0582f809b4bcbe3ccc9a}{getLocalidad}}()\{}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ localidad;}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00042}\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_aeb07863d7735d073d19320e8335f66d6}{00042}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_aeb07863d7735d073d19320e8335f66d6}{setLocalidad}}(String\ localidad)\{}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00043}00043\ \ \ \ \ \ \ \ \ this.localidad\ =\ localidad;}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ coches}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00047}\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a7700a471ea06efebf6c667624b6b1198}{00047}}\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<Coche>\ \mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a7700a471ea06efebf6c667624b6b1198}{getCoches}}()\{}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coches;}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00050}00050\ \ \ \ \ \textcolor{comment}{//\ no\ estableceremos\ un\ "{}setCoches"{},\ porque\ esto\ se\ manejará\ mediante\ los\ siguientes\ métodos:}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00051}00051\ \ \ \ \ \textcolor{comment}{//\ agregar\ un\ coche\ al\ concesionario}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00052}\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_af572a0447e8129c7dd466043f4f69cca}{00052}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_af572a0447e8129c7dd466043f4f69cca}{agregarCoche}}(\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche}{Coche}}\ coche)\ \{}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00053}00053\ \ \ \ \ \ \ \ \ this.coches.add(coche);}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00055}00055\ \ \ \ \ \textcolor{comment}{//\ eliminar\ un\ coche\ del\ concesionario}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00056}\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_acd0449c56580613ee7f8a97a0f57a3e7}{00056}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ \mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_acd0449c56580613ee7f8a97a0f57a3e7}{eliminarCoche}}(\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche}{Coche}}\ coche)\ \{}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.coches.remove(coche);}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00058}00058\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00059}00059\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00061}00061\ \ \ \ \ \textcolor{comment}{//\ encontrar\ un\ coche\ por\ su\ identificador}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00062}\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a33bc4d4c88d961dd97668cd481c7e01b}{00062}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classdomain_1_1jdo_1_1_coche}{Coche}}\ \mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_a33bc4d4c88d961dd97668cd481c7e01b}{encontrarCochePorId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classdomain_1_1jdo_1_1_coche}{Coche}}\ coche\ :\ coches)\ \{}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (coche.getId()\ ==\ id)\ \{}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coche;}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00067}00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};\ \textcolor{comment}{//\ devolver\ "{}nulo"{}\ si\ no\ se\ encontró\ el\ coche\ en\ la\ lista}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00071}00071\ \ \ \ \ \textcolor{comment}{//\ @Override}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00072}\mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_ab14b4ddfbe73b61c7e9359eb44df667b}{00072}}\ \ \ \ \ \textcolor{keyword}{public}\ String\ \mbox{\hyperlink{classdomain_1_1jdo_1_1_concesionario_ab14b4ddfbe73b61c7e9359eb44df667b}{toString}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Concesionario\{"{}}\ +}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}nombre='"{}}\ +\ nombre\ +\ \textcolor{charliteral}{'\(\backslash\)''}\ +}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{},\ localidad='"{}}\ +\ localidad\ +\ \textcolor{charliteral}{'\(\backslash\)''}\ +}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{},\ coches="{}}\ +\ coches\ +}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{charliteral}{'\}'};}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ Creo\ unos\ susuarios\ y\ contraseñas\ por\ ahora}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00084}00084\ \textcolor{comment}{//\ \ \ \ private\ static\ final\ String[][]\ usuarios\ =\ \{\{"{}usuario1"{},\ "{}password1"{}\},\ \{"{}usuario2"{},\ "{}password2"{}\},\ \{"{}usuario3"{},\ "{}password3"{}\}\};}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00086}00086\ \textcolor{comment}{//\ \ \ \ public\ static\ void\ main(String[]\ args)\ \{}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00087}00087\ \textcolor{comment}{//\ \ \ \ \ \ \ \ //\ Lógica\ de\ inicio\ de\ sesión}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00088}00088\ \textcolor{comment}{//\ \ \ \ \ \ \ \ boolean\ loggedIn\ =\ false;}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00089}00089\ \textcolor{comment}{//\ \ \ \ \ \ \ \ Scanner\ scanner\ =\ new\ Scanner(System.in);}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00090}00090\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00091}00091\ \textcolor{comment}{//\ \ \ \ \ \ \ \ System.out.println("{}Bienvenido\ al\ sistema\ del\ concesionario"{});}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00092}00092\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00093}00093\ \textcolor{comment}{//\ \ \ \ \ \ \ \ while\ (!loggedIn)\ \{}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00094}00094\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ System.out.print("{}Ingrese\ su\ nombre\ de\ usuario:\ "{});}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00095}00095\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ String\ username\ =\ scanner.nextLine();}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00096}00096\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ System.out.print("{}Ingrese\ su\ contraseña:\ "{});}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00097}00097\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ String\ password\ =\ scanner.nextLine();}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00098}00098\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00099}00099\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ if\ (login(username,\ password))\ \{}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00100}00100\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ loggedIn\ =\ true;}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00101}00101\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println("{}Inicio\ de\ sesión\ exitoso.\ Bienvenido,\ "{}\ +\ username\ +\ "{}!"{});}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00102}00102\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \}\ else\ \{}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00103}00103\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println("{}Nombre\ de\ usuario\ o\ contraseña\ incorrectos.\ Por\ favor,\ inténtelo\ de\ nuevo."{});}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00104}00104\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00105}00105\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00106}00106\ \textcolor{comment}{//\ \ \ \ \ \ \ \ scanner.close();}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00107}00107\ \textcolor{comment}{//\ \ \ \ \ \ \ \ //\ Mostrar\ el\ menú\ principal\ del\ concesionario.}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00108}00108\ \textcolor{comment}{//\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00109}00109\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00110}00110\ \textcolor{comment}{//\ \ \ \ //\ Método\ para\ verificar\ la\ autenticación\ del\ usuario}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00111}00111\ \textcolor{comment}{//\ \ \ \ private\ static\ boolean\ login(String\ username,\ String\ password)\ \{}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00112}00112\ \textcolor{comment}{//\ \ \ \ \ \ \ \ for\ (String[]\ user\ :\ usuarios)\ \{}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00113}00113\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ if\ (user[0].equals(username)\ \&\&\ user[1].equals(password))\ \{}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00114}00114\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ true;\ //\ El\ usuario\ y\ la\ contraseña\ coinciden}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00115}00115\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00116}00116\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00117}00117\ \textcolor{comment}{//\ \ \ \ \ \ \ \ return\ false;\ //\ No\ se\ encontró\ coincidencia}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00118}00118\ \textcolor{comment}{//\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00119}00119\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00120}00120\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00121}00121\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_concesionario_8java_source_l00122}00122\ \}}
+
+\end{DoxyCode}

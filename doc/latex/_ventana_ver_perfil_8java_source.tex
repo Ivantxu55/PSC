@@ -1,0 +1,149 @@
+\doxysection{Ventana\+Ver\+Perfil.\+java}
+\hypertarget{_ventana_ver_perfil_8java_source}{}\label{_ventana_ver_perfil_8java_source}\index{src/main/java/gui/VentanaVerPerfil.java@{src/main/java/gui/VentanaVerPerfil.java}}
+\mbox{\hyperlink{_ventana_ver_perfil_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00001}00001\ \textcolor{keyword}{package\ }gui;}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00003}00003\ \textcolor{keyword}{import}\ java.awt.*;}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00004}00004\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00005}00005\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00006}00006\ \textcolor{keyword}{import}\ java.io.FileInputStream;}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00007}00007\ \textcolor{keyword}{import}\ java.io.FileOutputStream;}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00008}00008\ \textcolor{keyword}{import}\ java.io.ObjectInputStream;}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00009}00009\ \textcolor{keyword}{import}\ java.io.ObjectOutputStream;}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00010}00010\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00012}00012\ \textcolor{keyword}{import}\ \mbox{\hyperlink{namespacedomain}{domain}}.\mbox{\hyperlink{namespacedomain_1_1jdo}{jdo}}.\mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario}{Usuario}};}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00014}00014\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00016}\mbox{\hyperlink{classgui_1_1_ventana_ver_perfil}{00016}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgui_1_1_ventana_ver_perfil}{VentanaVerPerfil}}\ \textcolor{keyword}{extends}\ JFrame\{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00017}00017\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00018}00018\ \ \ \ \ ArrayList<Usuario>\ listaUsuarios\ =\ \textcolor{keyword}{new}\ ArrayList<Usuario>();}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00019}00019\ \ \ \ \ \textcolor{keyword}{private}\ \mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario}{Usuario}}\ usuarioLogeado;}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00020}00020\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ \textcolor{keywordtype}{long}\ serialVersionUID\ =\ 1L;}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00026}\mbox{\hyperlink{classgui_1_1_ventana_ver_perfil_a22289549f468cb37596f438d2e44193a}{00026}}\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classgui_1_1_ventana_ver_perfil_a22289549f468cb37596f438d2e44193a}{VentanaVerPerfil}}(\mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario}{Usuario}}\ userLog)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00027}00027\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00028}00028\ \ \ \ \ \ \ \ \ usuarioLogeado\ =\ userLog;}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00029}00029\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ de\ la\ ventana.}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00031}00031\ \ \ \ \ \ \ \ \ setTitle(\textcolor{stringliteral}{"{}Ventana\ ver\ perfil"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00032}00032\ \ \ \ \ \ \ \ \ setSize(800,\ 600);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00033}00033\ \ \ \ \ \ \ \ \ setLocation(400,\ 150);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00034}00034\ \ \ \ \ \ \ \ \ setDefaultCloseOperation(JFrame.DISPOSE\_ON\_CLOSE);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00035}00035\ \ \ \ \ \ \ \ \ setLayout(\textcolor{keyword}{new}\ BorderLayout());}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00036}00036\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creación\ de\ contenedores\ de\ la\ ventana\ y\ su\ configuración.}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00038}00038\ \ \ \ \ \ \ \ \ JPanel\ pNorte\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00039}00039\ \ \ \ \ \ \ \ \ pNorte.setLayout(\textcolor{keyword}{new}\ GridLayout(1,7));}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00040}00040\ \ \ \ \ \ \ \ \ JPanel\ pCentro\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00041}00041\ \ \ \ \ \ \ \ \ pCentro.setLayout(\textcolor{keyword}{new}\ GridLayout(6,1));}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00042}00042\ \ \ \ \ \ \ \ \ JPanel\ pSur\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00043}00043\ \ \ \ \ \ \ \ \ pSur.setLayout(\textcolor{keyword}{new}\ GridLayout(1,3));}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00044}00044\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creación\ de\ componentes\ de\ la\ ventana\ y\ su\ configuración.}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00046}00046\ \ \ \ \ \ \ \ \ JButton\ btnInicio\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Inicio"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00047}00047\ \ \ \ \ \ \ \ \ JButton\ btnEliminarCuenta\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Eliminar\ cuenta"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00048}00048\ \ \ \ \ \ \ \ \ JPanel\ pNombreTienda\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00049}00049\ \ \ \ \ \ \ \ \ JPanel\ pVacio1\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00050}00050\ \ \ \ \ \ \ \ \ JButton\ btnDesconectarse\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Desconectarse"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00051}00051\ \ \ \ \ \ \ \ \ JLabel\ lUsuario\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}Usuario:\ "{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00052}00052\ \ \ \ \ \ \ \ \ JLabel\ lContrasenya\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}Contraseña:\ "{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00053}00053\ \ \ \ \ \ \ \ \ JLabel\ lEmail\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}Email:\ "{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00054}00054\ \ \ \ \ \ \ \ \ JLabel\ lComprasRealizadas\ =\ \textcolor{keyword}{new}\ JLabel(\textcolor{stringliteral}{"{}Compras\ realizadas:"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00055}00055\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ de\ los\ eventos.}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00057}00057\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00058}00058\ \ \ \ \ \ \ \ \ btnEliminarCuenta.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_ventana_ver_perfil_ad37ba1c964c70bb168fb08fe9e384906}{leerBinarioUsuarios}}();}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ listaUsuarios.size();\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (listaUsuarios.get(i).getNombre().equals(usuarioLogeado.\mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario_a458a0c5fdcf4303ac4c0cb9e3fb619a8}{getNombre}}())\ \&\&\ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaUsuarios.get(i).getCorreo().equals(usuarioLogeado.\mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario_aa4921a1ce51d5ce7aed63db91bd4fa6e}{getCorreo}}()))\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaUsuarios.remove(i);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_ventana_ver_perfil_adfdbd89f186323f309a40b3801b25748}{escribirBinarioUsuarios}}();}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00076}00076\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00077}00077\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00078}00078\ \ \ \ \ \ \ \ \ btnInicio.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_ventana_principal}{VentanaPrincipal}}\ vp\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classgui_1_1_ventana_principal}{VentanaPrincipal}}(usuarioLogeado);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dispose();}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00087}00087\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00088}00088\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00089}00089\ \ \ \ \ \ \ \ \ btnDesconectarse.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ Auto-\/generated\ method\ stub}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00096}00096\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00097}00097\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Asignación\ de\ los\ componentes\ a\ los\ contenedores.}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00099}00099\ \ \ \ \ \ \ \ \ pNorte.add(btnInicio);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00100}00100\ \ \ \ \ \ \ \ \ pNorte.add(pNombreTienda);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00101}00101\ \ \ \ \ \ \ \ \ pNorte.add(pVacio1);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00102}00102\ \ \ \ \ \ \ \ \ pNorte.add(btnEliminarCuenta);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00103}00103\ \ \ \ \ \ \ \ \ pNorte.add(btnDesconectarse);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00104}00104\ \ \ \ \ \ \ \ \ pCentro.add(lUsuario);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00105}00105\ \ \ \ \ \ \ \ \ pCentro.add(lContrasenya);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00106}00106\ \ \ \ \ \ \ \ \ pCentro.add(lEmail);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00107}00107\ \ \ \ \ \ \ \ \ pCentro.add(lComprasRealizadas);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00108}00108\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00109}00109\ \ \ \ \ \ \ \ \ add(pNorte,\ BorderLayout.NORTH);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00110}00110\ \ \ \ \ \ \ \ \ add(pCentro,\ BorderLayout.CENTER);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00111}00111\ \ \ \ \ \ \ \ \ add(pSur,\ BorderLayout.SOUTH);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00112}00112\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configuración\ de\ la\ ventana.}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00114}00114\ \ \ \ \ \ \ \ \ setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00115}00115\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00116}00116\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00117}00117\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00118}\mbox{\hyperlink{classgui_1_1_ventana_ver_perfil_ad37ba1c964c70bb168fb08fe9e384906}{00118}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_ventana_ver_perfil_ad37ba1c964c70bb168fb08fe9e384906}{leerBinarioUsuarios}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00119}00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ (FileInputStream\ fis\ =\ \textcolor{keyword}{new}\ FileInputStream(\textcolor{stringliteral}{"{}src\(\backslash\)\(\backslash\)main\(\backslash\)\(\backslash\)resources\(\backslash\)\(\backslash\)usuarios.bin"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ObjectInputStream\ ois\ =\ \textcolor{keyword}{new}\ ObjectInputStream(fis))\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (fis.available()\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario}{Usuario}}\ usuario\ =\ (\mbox{\hyperlink{classdomain_1_1jdo_1_1_usuario}{Usuario}})\ ois.readObject();}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Usuario\ leído:\ "{}}\ +\ usuario);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaUsuarios.add(usuario);}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00131}00131\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00132}00132\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00133}\mbox{\hyperlink{classgui_1_1_ventana_ver_perfil_adfdbd89f186323f309a40b3801b25748}{00133}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_ventana_ver_perfil_adfdbd89f186323f309a40b3801b25748}{escribirBinarioUsuarios}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ (FileOutputStream\ fos\ =\ \textcolor{keyword}{new}\ FileOutputStream(\textcolor{stringliteral}{"{}src\(\backslash\)\(\backslash\)main\(\backslash\)\(\backslash\)resources\(\backslash\)\(\backslash\)usuarios.bin"{}});}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ObjectOutputStream\ oos\ =\ \textcolor{keyword}{new}\ ObjectOutputStream(fos))\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ listaUsuarios.size();\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ oos.writeObject(listaUsuarios.get(i));}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00144}00144\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{_ventana_ver_perfil_8java_source_l00146}00146\ \}}
+
+\end{DoxyCode}
