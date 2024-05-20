@@ -12,12 +12,6 @@ public class Concesionario {
     private String localidad;
     private ArrayList<Coche> coches;
 
-    // declaramos un constructor vacío
-    public Concesionario(){
-        this.nombre = "";
-        this.localidad = "";
-        this.coches = new ArrayList<Coche>();
-    }
 
     /**
      *@param nombre: nombre del concesionario
@@ -87,42 +81,42 @@ public class Concesionario {
 
 
     // Creo unos susuarios y contraseñas por ahora
-    private static final String[][] usuarios = {{"usuario1", "password1"}, {"usuario2", "password2"}, {"usuario3", "password3"}};
+//    private static final String[][] usuarios = {{"usuario1", "password1"}, {"usuario2", "password2"}, {"usuario3", "password3"}};
 
-    public static void main(String[] args) {
-        // Lógica de inicio de sesión
-        boolean loggedIn = false;
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Bienvenido al sistema del concesionario");
-
-        while (!loggedIn) {
-            System.out.print("Ingrese su nombre de usuario: ");
-            String username = scanner.nextLine();
-            System.out.print("Ingrese su contraseña: ");
-            String password = scanner.nextLine();
-
-            if (login(username, password)) {
-                loggedIn = true;
-                System.out.println("Inicio de sesión exitoso. Bienvenido, " + username + "!");
-            } else {
-                System.out.println("Nombre de usuario o contraseña incorrectos. Por favor, inténtelo de nuevo.");
-            }
-        }
-        scanner.close();
-        // Mostrar el menú principal del concesionario.
-    }
-
-    // Método para verificar la autenticación del usuario
-    private static boolean login(String username, String password) {
-        for (String[] user : usuarios) {
-            if (user[0].equals(username) && user[1].equals(password)) {
-                return true; // El usuario y la contraseña coinciden
-            }
-        }
-        return false; // No se encontró coincidencia
-    }
-
-
-
+//    public static void main(String[] args) {
+//        // Lógica de inicio de sesión
+//        boolean loggedIn = false;
+//        Scanner scanner = new Scanner(System.in);
+//
+//        System.out.println("Bienvenido al sistema del concesionario");
+//
+//        while (!loggedIn) {
+//            System.out.print("Ingrese su nombre de usuario: ");
+//            String username = scanner.nextLine();
+//            System.out.print("Ingrese su contraseña: ");
+//            String password = scanner.nextLine();
+//
+//            if (login(username, password)) {
+//                loggedIn = true;
+//                System.out.println("Inicio de sesión exitoso. Bienvenido, " + username + "!");
+//            } else {
+//                System.out.println("Nombre de usuario o contraseña incorrectos. Por favor, inténtelo de nuevo.");
+//            }
+//        }
+//        scanner.close();
+//        // Mostrar el menú principal del concesionario.
+//    }
+//
+//    // Método para verificar la autenticación del usuario
+//    private static boolean login(String username, String password) {
+//        for (String[] user : usuarios) {
+//            if (user[0].equals(username) && user[1].equals(password)) {
+//                return true; // El usuario y la contraseña coinciden
+//            }
+//        }
+//        return false; // No se encontró coincidencia
+//    }
+//
+//
+//
 }

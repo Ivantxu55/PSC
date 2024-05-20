@@ -96,6 +96,9 @@ class CocheTests {
 
         coche.setNuevo(true);
         assertTrue(coche.isNuevo());
+
+        coche.setId(1);
+        assertEquals(1, coche.getId());
     }
 
     /**
