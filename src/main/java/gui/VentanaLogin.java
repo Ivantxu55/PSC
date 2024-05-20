@@ -3,9 +3,13 @@ package gui;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
+import domain.jdo.Usuario;
 import metodosGui.MetodosGUI;
 
 import javax.swing.*;
@@ -16,11 +20,14 @@ import javax.swing.*;
  */
 public class VentanaLogin extends JFrame{
 	
-
+	ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
+	private Usuario usuarioLogeado;
+	
 	private static final long serialVersionUID = 1L;
 
 	public VentanaLogin() {
 
+		 usuarioLogeado = null;
 		
 		// Configuración de la ventana.
 		setTitle("Ventana login");
@@ -89,7 +96,17 @@ public class VentanaLogin extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				//TODO
-				VentanaPrincipal vp = new VentanaPrincipal();
+				leerBinarioUsuarios();
+				
+				for (int i = 0; i < listaUsuarios.size(); i++) {
+					if (listaUsuarios.get(i).getNombre().equals(txtUsuario.getText()) && 
+							listaUsuarios.get(i).getContrasenia().equals(txtContrasenya.getText())) {
+						usuarioLogeado = listaUsuarios.get(i);
+						break;
+					}
+				}
+				
+				VentanaPrincipal vp = new VentanaPrincipal(usuarioLogeado);
 				dispose();
 				
 			}
@@ -118,6 +135,21 @@ public class VentanaLogin extends JFrame{
 		// Configuración de la ventana.
 		setVisible(true);
 		
+	}
+	
+	public void leerBinarioUsuarios() {
+        try (FileInputStream fis = new FileInputStream("src\\main\\resources\\usuarios.bin");
+                ObjectInputStream ois = new ObjectInputStream(fis)) {
+
+               while (fis.available() > 0) {
+                   Usuario usuario = (Usuario) ois.readObject();
+                   System.out.println("Usuario leído: " + usuario);
+                   listaUsuarios.add(usuario);
+               }
+
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
 	}
 	
 	public static void main(String[] args) {
