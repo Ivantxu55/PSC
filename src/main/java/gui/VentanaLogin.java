@@ -21,13 +21,13 @@ import javax.swing.*;
 public class VentanaLogin extends JFrame{
 	
 	ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
-	private Usuario usuarioLogeado;
+	Usuario usuarioLogeado;
 	
 	private static final long serialVersionUID = 1L;
 
 	public VentanaLogin() {
-
-		 usuarioLogeado = null;
+		
+		usuarioLogeado = null;
 		
 		// Configuración de la ventana.
 		setTitle("Ventana login");
@@ -99,16 +99,28 @@ public class VentanaLogin extends JFrame{
 				leerBinarioUsuarios();
 				
 				for (int i = 0; i < listaUsuarios.size(); i++) {
-					if (listaUsuarios.get(i).getNombre().equals(txtUsuario.getText()) && 
-							listaUsuarios.get(i).getContrasenia().equals(txtContrasenya.getText())) {
-						usuarioLogeado = listaUsuarios.get(i);
-						break;
+					
+					// Se comprueba si coincide el nombre de usuario.
+					if (listaUsuarios.get(i).getNombre().equals(txtUsuario.getText())) {
+						lErrorUsuario.setVisible(false);
+						// Se comprueba si coincide la contraseña.
+						if (listaUsuarios.get(i).getContrasenia().equals(txtContrasenya.getText())) {
+							lErrorContrasenya.setVisible(false);
+							usuarioLogeado = listaUsuarios.get(i);
+							
+							dispose();
+							VentanaPrincipal vp = new VentanaPrincipal(usuarioLogeado);
+							break;
+						} else {
+							lErrorContrasenya.setVisible(true);
+							break;
+						}
+						
+					} else {
+						lErrorContrasenya.setVisible(false);
+						lErrorUsuario.setVisible(true);
 					}
 				}
-				
-				VentanaPrincipal vp = new VentanaPrincipal(usuarioLogeado);
-				dispose();
-				
 			}
 		});
 		
