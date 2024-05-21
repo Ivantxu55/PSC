@@ -71,6 +71,11 @@ public class Main extends JFrame{
 		setVisible(true);
 		
 	}
+	
+    // Método protegido para crear una instancia de MetodosGUI, permitiendo su sobrescritura en las pruebas
+    protected MetodosGUI createMetodosGUI() {
+        return new MetodosGUI();
+    }
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
