@@ -8,6 +8,8 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -36,9 +38,17 @@ class UsuarioTest {
     @Mock
     private Coche cocheMock = mock(Coche.class);
 
+    private SimpleDateFormat sdf;
+
+    private Date date;
+
+
     @BeforeEach
-    public void setUp() {
-        usuario = new Usuario("usuario", new Date(1577836800000L), "usuario@gmail.com", "1234", new ArrayList<Coche>());
+    public void setUp() throws ParseException {
+        sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String fecha = "01/01/2020";
+        date = sdf.parse(fecha);
+        usuario = new Usuario("usuario",date, "usuario@gmail.com", "1234", new ArrayList<Coche>());
 
         // Initialize the mocks
         MockitoAnnotations.openMocks(this);
@@ -50,14 +60,14 @@ class UsuarioTest {
     @Test
     public void testConstructorAndGetter() {
         when(usuarioMock.getNombre()).thenReturn("usuario");
-        when(usuarioMock.getFechaNacimiento()).thenReturn(new Date(1577836800000L));
+        when(usuarioMock.getFechaNacimiento()).thenReturn(date);
         when(usuarioMock.getCorreo()).thenReturn("usuario@gmail.com");
         when(usuarioMock.getContrasenia()).thenReturn("1234");
         when(usuarioMock.getCoches()).thenReturn(new ArrayList<Coche>());
 
 
         assertEquals("usuario", usuarioMock.getNombre());
-        assertEquals(new Date(1577836800000L), usuarioMock.getFechaNacimiento());
+        assertEquals(date, usuarioMock.getFechaNacimiento());
         assertEquals("usuario@gmail.com", usuarioMock.getCorreo());
         assertEquals("1234", usuarioMock.getContrasenia());
         assertEquals(new ArrayList<Coche>(), usuarioMock.getCoches());
@@ -71,8 +81,8 @@ class UsuarioTest {
         usuario.setNombre("usuario1");
         assertEquals("usuario1", usuario.getNombre());
 
-        usuario.setFechaNacimiento(new Date(1577836800000L));
-        assertEquals(new Date(1577836800000L), usuario.getFechaNacimiento());
+        usuario.setFechaNacimiento(date);
+        assertEquals(date, usuario.getFechaNacimiento());
 
         usuario.setCorreo("usuario@hotmail.com");
         assertEquals("usuario@hotmail.com", usuario.getCorreo());
@@ -101,8 +111,8 @@ class UsuarioTest {
 
     @Test
     public void testEquals() {
-        Usuario sameUsuario = new Usuario("usuario", new Date(1577836800000L), "usuario@gmail.com", "1234", new ArrayList<Coche>());
-        Usuario differentUsuario = new Usuario("usuario1", new Date(1577836800000L), "usuario1@gmail.com", "12345", new ArrayList<Coche>());
+        Usuario sameUsuario = new Usuario("usuario", date, "usuario@gmail.com", "1234", new ArrayList<Coche>());
+        Usuario differentUsuario = new Usuario("usuario1", date, "usuario1@gmail.com", "12345", new ArrayList<Coche>());
 
         assertEquals(usuario, sameUsuario);
         assertNotEquals(usuario, differentUsuario);
@@ -110,13 +120,13 @@ class UsuarioTest {
 
     @Test
     public void testHashCode() {
-        Usuario sameUsuario = new Usuario("usuario", new Date(1577836800000L), "usuario@gmail.com", "1234", new ArrayList<Coche>());
+        Usuario sameUsuario = new Usuario("usuario", date, "usuario@gmail.com", "1234", new ArrayList<Coche>());
         assertEquals(usuario.hashCode(), sameUsuario.hashCode());
     }
 
     @Test
     public void testToString() {
-        assertEquals("Usuario{nombre='usuario', fechaNacimiento=" + new Date(1577836800000L).toString() + ", correo='usuario@gmail.com', contrasenia='1234', coches=[]}", usuario.toString());
+        assertEquals("Usuario{nombre='usuario', fechaNacimiento=" + date.toString() + ", correo='usuario@gmail.com', contrasenia='1234', coches=[]}", usuario.toString());
     }
 
 

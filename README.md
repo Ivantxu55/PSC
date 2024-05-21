@@ -15,6 +15,11 @@ Este proyecto tiene como objetivo aprender a utilizar la metodología SCRUM para
     - Servidor:          `mvn jetty:run`
     - Cliente:           `mvn exec:java -Pcliente`
 
+## Cómo ejecutar los tests
+Se recomienda ejecutar los tests antes de realizar cualquier cambio en el código y limpiar el código con `mvn clean` antes de ejecutar los tests.
+Los tests sirven para comprobar que el programa funciona correctamente. Para ejecutarlos, simplemente ejecute el comando `mvn test`.
+Para tener una forma más visual de ver los resultados de los tests, puede ejecutar el comando `mvn jacoco:report`.
+
 ## Estructura y dependencias
 Existen dos paquetes dentro de nuestra aplicación, uno contiene la lógica de la app (lado servidor) y otro la interfaz gráfica (lado cliente). Todas las dependencias se encuentran en el archivo `pom`.
 

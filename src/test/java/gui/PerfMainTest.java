@@ -17,7 +17,7 @@ import com.github.noconnor.junitperf.JUnitPerfTestRequirement;
 import com.github.noconnor.junitperf.reporting.providers.HtmlReportGenerator;
 
 
-public class testPerfMain {
+public class PerfMainTest {
 
     private Main mainWindow;
 

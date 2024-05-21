@@ -5,17 +5,22 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
 
+import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.test.JerseyTest;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Application;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.*;
+
 /**
  * Clase que representa los tests de la clase Coche
  */
-class CocheTests {
+class CocheTests extends JerseyTest{
 
 
     private Coche coche;
@@ -40,6 +45,13 @@ class CocheTests {
 
         // Initialize the mocks
         MockitoAnnotations.openMocks(this);
+        client = ClientBuilder.newClient();
+        client = mock(Client.class);
+        webTarget = mock(WebTarget.class, RETURNS_DEEP_STUBS);
+
+        // Configure the Client mock to return the WebTarget mock
+        when(client.target(anyString())).thenReturn(webTarget);
+
 
 
 //        MockitoAnnotations.openMocks(this);
@@ -129,6 +141,21 @@ class CocheTests {
     public void testToString() {
         String expected = "Coche{id=0, marca=Ford, anyo=2020, color=Black, kilometraje=5000, precio=20000, nuevo=false}";
         assertEquals(expected, coche.toString());
+    }
+
+    @Override
+    protected Application configure() {
+        return new ResourceConfig(CocheResource.class);
+    }
+
+    @Test
+    public void testGetCoche() {
+        // Configura el mock para que devuelva un Coche específico cuando se llame a getCoche(1)
+        when(webTarget.path("coche/1").request().get(Coche.class)).thenReturn(coche);
+
+        // Realiza una solicitud GET a /coche/1 y verifica que la respuesta es el Coche que esperabas
+        Coche response = client.target("http://localhost:8080/rest/resource").path("coche/1").request().get(Coche.class);
+        assertEquals(coche, response);
     }
 
 }
