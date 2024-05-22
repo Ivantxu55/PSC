@@ -1,5 +1,5 @@
 -- crear tabla
-CREATE TABLE Coche (
+CREATE TABLE COCHE (
     id INT PRIMARY KEY AUTO_INCREMENT,
     marca VARCHAR(50),
     anyo INT,
@@ -10,7 +10,7 @@ CREATE TABLE Coche (
 );
 
 -- insertar algunos datos
-INSERT INTO Coche (marca, anyo, color, kilometraje, precio, nuevo) VALUES
+INSERT INTO COCHE (marca, anyo, color, kilometraje, precio, nuevo) VALUES
 ('Toyota', 2020, 'Black', 10, 35000, TRUE),
 ('Ford', 2018, 'Black', 12, 50000, TRUE),
 ('Chevrolet', 2021, 'Black', 0, 50000, TRUE),

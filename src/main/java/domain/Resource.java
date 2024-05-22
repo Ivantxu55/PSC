@@ -178,7 +178,7 @@ public class Resource {
 
         try {
             // consulta SQL para obtener todos los coches
-            Query q = pm.newQuery("javax.jdo.query.SQL", "SELECT * FROM coche");
+            Query q = pm.newQuery("javax.jdo.query.SQL", "SELECT * FROM COCHE");
             List<Object[]> results = (List<Object[]>) q.execute();
 
             // iterar sobre cada fila de resultados para crear objetos Coche y añadirlos a la ArrayList coches
