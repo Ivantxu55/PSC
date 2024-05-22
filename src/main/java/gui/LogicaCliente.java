@@ -22,16 +22,28 @@ public class LogicaCliente {
 	private final Client client;
 	private final WebTarget webTarget;
 
-	public LogicaCliente(String hostname, String port) {
-		client = ClientBuilder.newClient();
-		webTarget = client.target(String.format("http://%s:%s/rest/resource", hostname, port));
-	}
+    public LogicaCliente(String hostname, String port) {
+        this.client = ClientBuilder.newClient();
+        this.webTarget = this.client.target(String.format("http://%s:%s/rest/resource", hostname, port));
+    }
+
+    // sobrecarga del constructor para permitir pasarle un cliente ya creado
+    public LogicaCliente(String hostname, String port, Client providedClient) {
+        this.client = providedClient;
+        this.webTarget = this.client.target(String.format("http://%s:%s/rest/resource", hostname, port));
+    }
+
+	// public LogicaCliente(String hostname, String port, Client client) {
+	// 	// client = ClientBuilder.newClient();
+	// 	this.client = client;
+	// 	this.webTarget = this.client.target(String.format("http://%s:%s/rest/resource", hostname, port));
+	// }
 
     public void agregarCoche(Coche coche) {
         // System.out.println(coche);
 
         // establecemos conexion con el servidor a través de la API
-        WebTarget agregarCocheWebTarget = webTarget.path("agregarCoche");
+        WebTarget agregarCocheWebTarget = this.webTarget.path("agregarCoche");
 
         // enviamos una petición POST con los datos del coche en formato JSON
 		Invocation.Builder invocationBuilder = agregarCocheWebTarget.request(MediaType.APPLICATION_JSON);
@@ -50,7 +62,7 @@ public class LogicaCliente {
 		System.out.println(coche);
 
 		// establecemos conexión con el servidor a través de la API
-		WebTarget eliminarCocheWebTarget = webTarget.path("eliminarCoche/{id}");
+		WebTarget eliminarCocheWebTarget = this.webTarget.path("eliminarCoche/{id}");
 		// configuramos el WebTarget con el ID del coche a eliminar
 		WebTarget cocheConId = eliminarCocheWebTarget.resolveTemplate("id", coche.getId());
 
@@ -72,7 +84,7 @@ public class LogicaCliente {
 		System.out.println("ID del coche a modificar: " + coche.getId() + ", Cambios: " + cambios);
 
 		// Establecemos conexión con el servidor a través de la API
-		WebTarget modificarCocheWebTarget = webTarget.path("modificarCoche/{id}");
+		WebTarget modificarCocheWebTarget = this.webTarget.path("modificarCoche/{id}");
 		// Configuramos el WebTarget con el ID del coche a modificar
 		WebTarget cocheConId = modificarCocheWebTarget.resolveTemplate("id", coche.getId());
 
