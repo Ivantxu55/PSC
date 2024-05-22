@@ -1,0 +1,30 @@
+name: concesionarios
+
+services:
+  api_server:
+    build: ./
+    ports:
+      - "8080:8080"
+    networks:
+      - aplicacion
+    # depends_on:
+    #   - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: concesionariosdb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./config_database.sql:/docker-entrypoint-initdb.d/config_database.sql
+    networks:
+      - aplicacion
+
+networks:
+  aplicacion:
+    driver: bridge
+    external: false
