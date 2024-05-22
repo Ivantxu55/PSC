@@ -11,10 +11,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.Assume;
 
 import com.github.noconnor.junitperf.JUnitPerfTest;
 import com.github.noconnor.junitperf.JUnitPerfTestRequirement;
 import com.github.noconnor.junitperf.reporting.providers.HtmlReportGenerator;
+
+import java.awt.GraphicsEnvironment;
 
 
 public class PerfMainTest {
@@ -23,6 +26,8 @@ public class PerfMainTest {
 
     @Before
     public void setUp() {
+        Assume.assumeFalse("The test is running in a headless environment", GraphicsEnvironment.isHeadless());
+
         mainWindow = new Main();
     }
 
