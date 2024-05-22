@@ -16,6 +16,7 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.PathParam;
 
 import javax.ws.rs.PUT;
+import javax.ws.rs.GET;
 
 import domain.jdo.Coche;
 
@@ -24,6 +25,15 @@ import java.util.Map;
 
 import domain.jdo.Marca;
 import domain.jdo.Color;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import javax.jdo.Query;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.Gson;
+import java.lang.reflect.Type;
+
 /**
  * Clase que representa un recurso REST con los metodos para agregar, eliminar y modificar coches.
  * @see Coche
@@ -154,6 +164,45 @@ public class Resource {
                 pm.close(); // cerrar el PersistenceManager
             }
         }
+    }
+
+    @GET
+    @Path("/getCoches")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getCoches() {
+
+        ArrayList<Coche> coches = new ArrayList<>();
+
+        PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+        PersistenceManager pm = pmf.getPersistenceManager();
+
+        try {
+            // consulta SQL para obtener todos los coches
+            Query q = pm.newQuery("javax.jdo.query.SQL", "SELECT * FROM coche");
+            List<Object[]> results = (List<Object[]>) q.execute();
+
+            // iterar sobre cada fila de resultados para crear objetos Coche y añadirlos a la ArrayList coches
+            for (Object[] row : results) {
+                Marca marca = Marca.valueOf((String) row[1]);
+                Color color = Color.valueOf((String) row[3]);
+                Coche coche = new Coche(
+                    marca,          // marca
+                    (Integer) row[2], // año
+                    color,          // color
+                    (Integer) row[4], // km
+                    (Integer) row[5], // precio
+                    (Boolean) row[6]  // nuevo
+                );
+                coche.setId((Integer) row[0]);
+                coches.add(coche);
+            }
+        } finally {
+            pm.close();  // nos aseguramos de cerrar la consulta y el PersistenceManager para liberar recursos
+        }
+
+        Gson gson = new Gson();
+        // System.out.println("Coches: " + gson.toJson(coches));
+        return Response.ok(gson.toJson(coches)).build();
     }
 
 }

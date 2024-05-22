@@ -106,27 +106,16 @@ public class VentanaPrincipal extends JFrame{
 
 
 		ArrayList<Coche> coches = new ArrayList<Coche>();
-
-        PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-        PersistenceManager pm = pmf.getPersistenceManager();
-		Query q = pm.newQuery("javax.jdo.query.SQL", "SELECT * FROM coche");
-		List<Object[]> results = q.executeList();
-		for (Object[] row : results) {
-			Marca marca = Marca.valueOf((String) row[1]);
-			Color color = Color.valueOf((String) row[3]);
-			Coche coche = new Coche(
-				marca,          	// marca
-				(Integer)row[2],    // año
-				color,          	// color
-				(Integer)row[4],	// km
-				(Integer)row[5],	// precio
-				(Boolean)row[6]		// estado
-			);
-			coche.setId((Integer)row[0]);
-			coches.add(coche);
-		}
-		q.closeAll();
 		
+		LogicaCliente logicaCliente = new LogicaCliente("localhost", "8080");
+		try {
+			ArrayList<Coche> nuevosCoches = logicaCliente.obtenerCoches();
+			coches.addAll(nuevosCoches);  // Agrega elementos sin reasignar la referencia
+		} catch (Exception e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Error al obtener los coches: " + e.getMessage());
+		}
+
 		CocheTableModel tablamodelo = new CocheTableModel(coches);
 		tablaCoches = new JTable(tablamodelo);
 		pCentro.add(tablaCoches);

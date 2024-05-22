@@ -13,6 +13,13 @@ import domain.jdo.Coche;
 
 import java.util.Map;
 
+import java.util.List;
+import java.util.ArrayList;
+
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.Gson;
+import java.lang.reflect.Type;
+
 // import org.apache.logging.log4j.LogManager;
 // import org.apache.logging.log4j.Logger;
 
@@ -103,5 +110,24 @@ public class LogicaCliente {
 			System.out.println("Error al modificar el coche: " + response.getStatus());
 		}
 	}
+
+    public ArrayList<Coche> obtenerCoches() throws Exception {
+
+        // establecemos conexion con el servidor a través de la API
+        WebTarget getCochesWebTarget = this.webTarget.path("getCoches");
+
+		Invocation.Builder invocationBuilder = getCochesWebTarget.request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.get();
+
+		Gson gson = new Gson();
+		Type tipoLista = new TypeToken<ArrayList<Coche>>(){}.getType();
+
+		String jsonResponse = response.readEntity(String.class);
+		// System.out.println("Respuesta recibida: " + jsonResponse);
+        ArrayList<Coche> listaCoches = gson.fromJson(jsonResponse, tipoLista);
+
+        return listaCoches;
+    }
+
 
 }
