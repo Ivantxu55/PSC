@@ -33,7 +33,9 @@ public class PerfMainTest {
 
     @After
     public void tearDown() {
-        mainWindow.dispose();
+        if (mainWindow != null) {
+            mainWindow.dispose();
+        }
     }
 
     @Test
