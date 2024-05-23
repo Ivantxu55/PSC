@@ -23,6 +23,13 @@ Para tener una forma más visual de ver los resultados de los tests, puede ejecu
 ## Estructura y dependencias
 Existen dos paquetes dentro de nuestra aplicación, uno contiene la lógica de la app (lado servidor) y otro la interfaz gráfica (lado cliente). Todas las dependencias se encuentran en el archivo `pom`.
 
+## Docker
+Pasos para lanzar el servidor y la base de datos en contenedores:
+ - Tener instalado Docker Engine y Docker Compose.
+ - Modificar los valores del `datanucleus.properties`.
+ - En la carpeta del repositorio ejecutar `docker compose up`.
+ - Si estás lanzando los contenedores en otro servidor, puedes hacer un túnel ssh mediante `ssh -N -L 8080:<IP-EXTERNA>:8080 <USUARIO>@<IP-EXTERNA>` de forma que cuando ejecutes el programa cliente en tu ordenador no haya que hacer ningún cambio.
+
 ## Contacto de los miembros del equipo
  - @Ivantxu55 - ivan.casado@opendeusto.es
  - @Federriko97 - federico.alonso@opendeusto.es
